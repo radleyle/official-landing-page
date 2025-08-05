@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FiSend, FiUser, FiMail, FiMessageSquare } from 'react-icons/fi';
+import emailjs from '@emailjs/browser';
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -53,15 +54,31 @@ export default function ContactForm() {
       return;
     }
 
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    setFormData({ name: '', email: '', message: '' });
-    
-    // Reset success message after 5 seconds
-    setTimeout(() => setIsSubmitted(false), 5000);
+    try {
+      // Send email using EmailJS
+      const result = await emailjs.send(
+        'service_rktt5wd', // Replace with your EmailJS service ID
+        'template_zy65p5g', // Replace with your EmailJS template ID
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+        },
+        'qd5ITCkiP5AhQAHxi' // Replace with your EmailJS public key
+      );
+
+      if (result.status === 200) {
+        setIsSubmitted(true);
+        setFormData({ name: '', email: '', message: '' });
+        // Reset success message after 5 seconds
+        setTimeout(() => setIsSubmitted(false), 5000);
+      }
+    } catch (error) {
+      console.error('Email send failed:', error);
+      // You could add error handling here
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (isSubmitted) {
