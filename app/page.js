@@ -161,7 +161,7 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              {['about', 'skills', 'projects', 'experience', 'contact'].map((section, index) => (
+              {['about', 'skills', 'projects', 'experience', 'interests', 'contact'].map((section, index) => (
                 <motion.button
                   key={section}
                   onClick={() => scrollToSection(section)}
@@ -231,7 +231,7 @@ export default function Home() {
             transition={{ duration: 0.3 }}
           >
             <div className="px-6 py-4 space-y-2">
-              {['about', 'skills', 'projects', 'experience', 'contact'].map((section) => (
+              {['about', 'skills', 'projects', 'experience', 'interests', 'contact'].map((section) => (
                 <motion.button
                   key={section}
                   onClick={() => {
@@ -913,6 +913,219 @@ export default function Home() {
                     transition={{ duration: 2, delay: 0.5 }}
                     viewport={{ once: true }}
                   />
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Personal Interests Section */}
+      <section id="interests" className="py-32 relative">
+        {/* Background glass elements */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="absolute top-16 left-1/4 w-44 h-44 bg-gradient-to-br from-orange-300/10 to-transparent rounded-full blur-3xl"></div>
+          <div className="absolute bottom-16 right-1/4 w-36 h-36 bg-gradient-to-br from-yellow-300/10 to-transparent rounded-full blur-3xl"></div>
+        </div>
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent leading-tight pb-2" style={{ lineHeight: '1.1' }}>
+              Beyond Code
+            </h2>
+            <p className="text-xl text-foreground/60 max-w-2xl mx-auto">
+              A glimpse into my life outside of development
+            </p>
+          </motion.div>
+
+                    <div className="grid lg:grid-cols-2 gap-16 items-start">
+            
+            {/* Left Side - Liquid Glass Interest Boxes */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="space-y-6"
+            >
+              {[
+                {
+                  icon: "🏀",
+                  title: "Basketball",
+                  description: "Team captain, love the strategy and teamwork. Teaches me leadership and quick decision-making.",
+                  color: "from-orange-500/20 to-red-500/20",
+                  borderColor: "border-orange-500/30"
+                },
+                {
+                  icon: "🎵",
+                  title: "Music",
+                  description: "Play guitar and piano. Helps with creative problem-solving and attention to detail.",
+                  color: "from-purple-500/20 to-pink-500/20",
+                  borderColor: "border-purple-500/30"
+                },
+                {
+                  icon: "✈️",
+                  title: "Travel",
+                  description: "15+ countries visited. Brings global perspective and adaptability to my projects.",
+                  color: "from-blue-500/20 to-cyan-500/20",
+                  borderColor: "border-blue-500/30"
+                },
+                {
+                  icon: "📚",
+                  title: "Reading",
+                  description: "Tech blogs and sci-fi novels. Keeps me learning and fuels creative thinking.",
+                  color: "from-green-500/20 to-teal-500/20",
+                  borderColor: "border-green-500/30"
+                }
+              ].map((interest, index) => (
+                <motion.div
+                  key={interest.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="group"
+                >
+                  <div className={`relative bg-white/[0.08] backdrop-blur-xl border ${interest.borderColor} rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 overflow-hidden`}
+                       style={{
+                         backdropFilter: 'blur(40px) saturate(200%) brightness(1.15)',
+                         WebkitBackdropFilter: 'blur(40px) saturate(200%) brightness(1.15)',
+                         boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 25px 50px -12px rgba(0, 0, 0, 0.25)'
+                       }}>
+                    {/* Glass reflection overlay */}
+                    <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${interest.color} opacity-60`}></div>
+                    
+                    <div className="relative z-10 flex items-center space-x-4">
+                      {/* Icon */}
+                      <div className="flex-shrink-0">
+                        <div className="w-16 h-16 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center">
+                          <div className="text-2xl">{interest.icon}</div>
+                        </div>
+                      </div>
+                      
+                      {/* Content */}
+                      <div className="flex-1">
+                        <h3 className="text-xl font-bold mb-2 text-foreground">
+                          {interest.title}
+                        </h3>
+                        <p className="text-foreground/70 text-sm leading-relaxed">
+                          {interest.description}
+                        </p>
+                      </div>
+                    </div>
+                    
+                    {/* Hover glow effect */}
+                    <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${interest.color} opacity-0 group-hover:opacity-20 transition-opacity duration-500`}></div>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+
+            {/* Right Side - Photo */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1, delay: 0.4 }}
+              viewport={{ once: true }}
+              className="relative"
+            >
+              {/* Main Photo with Floating Elements */}
+              <div className="relative group">
+                <motion.div 
+                  className="relative w-[450px] h-[600px] mx-auto"
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  {/* Photo Container */}
+                  <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl border border-white/30 dark:border-white/20 backdrop-blur-xl"
+                       style={{
+                         backdropFilter: 'blur(20px) saturate(180%)',
+                         WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+                       }}>
+                    <div className="w-full h-full bg-gradient-to-br from-orange-500/20 via-purple-500/20 to-blue-500/20 flex items-center justify-center">
+                      <div className="text-4xl">📸</div>
+                    </div>
+                    {/* To add actual photo: <Image src="/images/interests-photo.jpg" alt="Personal Interests" fill className="object-cover" /> */}
+                    {/* Glass overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-black/10"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-white/10"></div>
+                  </div>
+                  
+                  {/* Floating Achievement Cards */}
+                  <motion.div 
+                    className="absolute -top-6 -right-6 bg-white/10 backdrop-blur-xl border border-white/30 rounded-2xl p-4 shadow-xl"
+                    initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
+                    whileInView={{ opacity: 1, scale: 1, rotate: -5 }}
+                    transition={{ duration: 0.8, delay: 0.8 }}
+                    whileHover={{ rotate: 0, scale: 1.05 }}
+                    viewport={{ once: true }}
+                  >
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-orange-400">🏆</div>
+                      <div className="text-xs text-foreground/70">Team Captain</div>
+                    </div>
+                  </motion.div>
+
+                  <motion.div 
+                    className="absolute -bottom-4 -left-8 bg-white/10 backdrop-blur-xl border border-white/30 rounded-2xl p-4 shadow-xl"
+                    initial={{ opacity: 0, scale: 0.8, rotate: 10 }}
+                    whileInView={{ opacity: 1, scale: 1, rotate: 5 }}
+                    transition={{ duration: 0.8, delay: 1 }}
+                    whileHover={{ rotate: 0, scale: 1.05 }}
+                    viewport={{ once: true }}
+                  >
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-purple-400">🎸</div>
+                      <div className="text-xs text-foreground/70">Guitar & Piano</div>
+                    </div>
+                  </motion.div>
+                </motion.div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Fun Facts */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+            className="mt-16"
+          >
+            <div className="relative bg-white/[0.08] backdrop-blur-xl border border-white/30 rounded-3xl p-8 shadow-2xl overflow-hidden"
+                 style={{
+                   backdropFilter: 'blur(40px) saturate(200%) brightness(1.15)',
+                   WebkitBackdropFilter: 'blur(40px) saturate(200%) brightness(1.15)',
+                   boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 25px 50px -12px rgba(0, 0, 0, 0.25)'
+                 }}>
+              {/* Glass reflection overlay */}
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-white/20 via-white/5 to-transparent opacity-70"></div>
+              
+              <div className="relative z-10 text-center">
+                <h3 className="text-2xl font-bold mb-6 text-foreground">Fun Facts</h3>
+                <div className="grid md:grid-cols-3 gap-6">
+                  {[
+                    { fact: "Can solve a Rubik's cube in under 2 minutes", emoji: "🧩" },
+                    { fact: "Speak 3 languages fluently", emoji: "🗣️" },
+                    { fact: "Once coded for 36 hours straight", emoji: "☕" }
+                  ].map((item, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
+                      viewport={{ once: true }}
+                      className="text-center"
+                    >
+                      <div className="text-3xl mb-3">{item.emoji}</div>
+                      <p className="text-foreground/70 text-sm">{item.fact}</p>
+                    </motion.div>
+                  ))}
                 </div>
               </div>
             </div>
