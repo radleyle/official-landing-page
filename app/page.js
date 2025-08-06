@@ -165,7 +165,7 @@ export default function Home() {
               <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-sm">NL</span>
               </div>
-              <span className="text-gray-900 dark:text-white font-medium text-lg">Nguyen Le</span>
+              <span className="text-gray-900 dark:text-white font-medium text-base">Nguyen Le</span>
             </motion.div>
 
             {/* Navigation Links - Desktop */}
@@ -298,7 +298,7 @@ export default function Home() {
               </motion.div>
 
               <motion.h1
-                className="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight"
+                className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
@@ -306,7 +306,7 @@ export default function Home() {
                 <span className="text-white">Hi, I'm</span>{" "}
                 <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
                   <TypewriterText 
-                    texts={["Nguyen", "Radley", "A Developer"]}
+                    texts={["Nguyen", "Radley", "an AI & Software Engineer"]}
                     speed={150}
                     deleteSpeed={100}
                     pauseDuration={1500}
@@ -315,12 +315,12 @@ export default function Home() {
               </motion.h1>
               
               <motion.p
-                className="text-xl md:text-2xl text-gray-300 leading-relaxed max-w-2xl mx-auto lg:mx-0"
+                className="text-lg md:text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto lg:mx-0"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
               >
-                Full-stack developer crafting exceptional digital experiences that drive real results. Specializing in modern web technologies with a passion for clean code and innovative solutions.
+                Computer Science student at Bucknell (GPA 3.60) with research published at ICML VecDB 2025, hands-on AI chatbot and LCA modeling experience, and strong skills in Python, Java, and React.
               </motion.p>
               
               <motion.div
@@ -402,13 +402,13 @@ export default function Home() {
                     }}
                   >
         <Image
-                      src="/images/main_image.jpg"
-                      alt="Your Name - Profile Photo"
+                      src="/images/kyyeu.png"
+                      alt="Radley - Profile Photo"
                       fill
                       className="object-cover hover:scale-110 transition-transform duration-700"
                       style={{ 
                         objectPosition: '35% 15%',
-                        transform: 'scale(1.2)'
+                        transform: 'scale(1.1) translateY(16px) translateX(-8px)'
                       }}
           priority
         />
@@ -490,7 +490,7 @@ export default function Home() {
               {/* Main Photo with Floating Elements */}
               <div className="relative group">
                 <motion.div 
-                  className="relative w-80 h-96 mx-auto"
+                  className="relative w-[400px] h-[520px] mx-auto"
                   whileHover={{ scale: 1.02 }}
                   transition={{ duration: 0.5 }}
                 >
@@ -501,10 +501,10 @@ export default function Home() {
                          WebkitBackdropFilter: 'blur(20px) saturate(180%)',
                        }}>
             <Image
-                      src="/images/about_me.jpg"
+                      src="/images/concert.png"
                       alt="Radley - Professional Photo"
                       fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-700"
+                      className="object-cover transition-transform duration-700 scale-150 -translate-y-12 translate-x-6"
                       priority
                     />
                     {/* Glass overlay */}
@@ -522,7 +522,7 @@ export default function Home() {
                     viewport={{ once: true }}
                   >
                     <div className="text-center">
-                      <div className="text-2xl font-bold text-blue-400">5+</div>
+                      <div className="text-2xl font-bold text-blue-400">2+</div>
                       <div className="text-xs text-foreground/70">Years</div>
                     </div>
                   </motion.div>
@@ -536,12 +536,12 @@ export default function Home() {
                     viewport={{ once: true }}
                   >
                     <div className="text-center">
-                      <div className="text-2xl font-bold text-purple-400">50+</div>
+                      <div className="text-2xl font-bold text-purple-400">10+</div>
                       <div className="text-xs text-foreground/70">Projects</div>
                     </div>
                   </motion.div>
 
-                  <motion.div 
+                  {/* <motion.div 
                     className="absolute top-1/2 -right-12 bg-white/10 backdrop-blur-xl border border-white/30 rounded-2xl p-3 shadow-xl"
                     initial={{ opacity: 0, scale: 0.8, rotate: -15 }}
                     whileInView={{ opacity: 1, scale: 1, rotate: -8 }}
@@ -553,7 +553,7 @@ export default function Home() {
                       <div className="text-xl font-bold text-green-400">100%</div>
                       <div className="text-xs text-foreground/70">Client</div>
                     </div>
-                  </motion.div>
+                  </motion.div> */}
                 </motion.div>
               </div>
 
@@ -635,7 +635,7 @@ export default function Home() {
                     whileInView={{ opacity: 1 }}
                     transition={{ duration: 0.8, delay: 0.8 }}
                   >
-                    💡 The Beginning
+                    The Beginning
                   </motion.h3>
                   <motion.p 
                     className="text-foreground/70 leading-relaxed"
@@ -643,7 +643,7 @@ export default function Home() {
                     whileInView={{ opacity: 1 }}
                     transition={{ duration: 0.8, delay: 1 }}
                   >
-                    As a Computer Science student at Bucknell University, I discovered my passion for creating digital experiences that bridge the gap between complex technology and beautiful, intuitive design.
+                    I came to Bucknell as an Early Childhood Education major with a desire to follow my family's footsteps. However, I quickly discovered my passion for software development and computer science.
                   </motion.p>
                 </div>
               </motion.div>
@@ -664,7 +664,7 @@ export default function Home() {
                     whileInView={{ opacity: 1 }}
                     transition={{ duration: 0.8, delay: 1 }}
                   >
-                    🚀 The Passion
+                    The Passion
                   </motion.h3>
                   <motion.p 
                     className="text-foreground/70 leading-relaxed"
@@ -693,7 +693,7 @@ export default function Home() {
                     whileInView={{ opacity: 1 }}
                     transition={{ duration: 0.8, delay: 1.2 }}
                   >
-                    ✨ The Future
+                    The Future
                   </motion.h3>
                   <motion.p 
                     className="text-foreground/70 leading-relaxed"
@@ -714,7 +714,7 @@ export default function Home() {
                 transition={{ duration: 0.8, delay: 1.2 }}
                 viewport={{ once: true }}
               >
-                <MagneticButton>
+                {/* <MagneticButton>
                   <motion.button 
                     className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-8 py-4 rounded-2xl font-medium shadow-xl hover:shadow-2xl transition-all duration-300"
                     whileHover={{ scale: 1.05 }}
@@ -722,7 +722,7 @@ export default function Home() {
                   >
                     Let's Build Something Amazing →
                   </motion.button>
-                </MagneticButton>
+                </MagneticButton> */}
               </motion.div>
             </motion.div>
           </div>
@@ -749,7 +749,7 @@ export default function Home() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent leading-tight pb-2" style={{ lineHeight: '1.1' }}>
-              Skills
+              Technical Skills
             </h2>
             <p className="text-xl text-foreground/60 max-w-2xl mx-auto">
               Technologies I use to bring ideas to life
@@ -829,10 +829,10 @@ export default function Home() {
         <div className="flex items-center justify-center h-full">
           {(() => {
             if (currentSkill.icon === 'github') {
-              return <FiGithub size={60} style={{ color: currentSkill.color }} />;
+              return <FiGithub size={45} style={{ color: currentSkill.color }} />;
             } else {
               const IconComponent = currentSkill.skill.icon;
-              return <IconComponent size={60} style={{ color: currentSkill.color }} />;
+              return <IconComponent size={45} style={{ color: currentSkill.color }} />;
             }
           })()}
         </div>
@@ -890,21 +890,21 @@ export default function Home() {
                                     src="/images/java_original_logo.png" 
                                     alt="Java" 
                                     style={{ 
-                                      width: '80px', 
-                                      height: '80px', 
+                                      width: '60px', 
+                                      height: '60px', 
                                       objectFit: 'contain' 
                                     }} 
                                   />
                                 );
                               } else {
                                 const IconComponent = item.skill.icon;
-                                return <IconComponent size={60} style={{ color: item.skill.color }} />;
+                                return <IconComponent size={45} style={{ color: item.skill.color }} />;
                               }
                             })()}
                           </div>
                         ) : (
                           <div className="flex items-center justify-center h-full">
-                            <span className="text-sm font-medium text-white/70 group-hover:text-white transition-colors">
+                            <span className="text-xs font-medium text-white/70 group-hover:text-white transition-colors">
                               {item.letter}
                             </span>
                           </div>
@@ -951,12 +951,12 @@ export default function Home() {
                           <div className="flex items-center justify-center h-full">
                             {(() => {
                               const IconComponent = item.skill.icon;
-                              return <IconComponent size={60} style={{ color: item.skill.color }} />;
+                              return <IconComponent size={45} style={{ color: item.skill.color }} />;
                             })()}
                           </div>
                         ) : (
                           <div className="flex items-center justify-center h-full">
-                            <span className="text-sm font-medium text-white/70 group-hover:text-white transition-colors">
+                            <span className="text-xs font-medium text-white/70 group-hover:text-white transition-colors">
                               {item.letter}
                             </span>
                           </div>
@@ -978,7 +978,7 @@ export default function Home() {
                       whileTap={{ scale: 0.95 }}
                     >
                       <div className="flex items-center justify-center h-full">
-                        <span className="text-sm font-medium text-white/70 group-hover:text-white transition-colors">
+                        <span className="text-xs font-medium text-white/70 group-hover:text-white transition-colors">
                           {letter}
                         </span>
                       </div>
@@ -1036,50 +1036,58 @@ export default function Home() {
                 {/* Current Project */}
                 <div className="space-y-6">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-green-500/20 to-teal-500/20 rounded-xl flex items-center justify-center border border-white/30">
+                    {/* <div className="w-12 h-12 bg-gradient-to-br from-green-500/20 to-teal-500/20 rounded-xl flex items-center justify-center border border-white/30">
                       <div className="text-2xl">🚀</div>
-                    </div>
+                    </div> */}
                     <div>
-                      <h3 className="text-xl font-bold text-green-400">AI-Powered Portfolio</h3>
-                      <p className="text-sm text-foreground/60">Personal Project</p>
+                      <h3 className="text-xl font-bold text-green-400">AI-Powered LCA Framework with LLM</h3>
+                      <p className="text-sm text-foreground/60">Accepted Research Project</p>
                     </div>
                   </div>
                   <p className="text-foreground/70 leading-relaxed">
-                    Building an intelligent portfolio that adapts to visitors and showcases my work in an innovative way using AI and machine learning.
+                    Building RAG-integrated pipeline for data extraction from literature papers to predict the environmental impact of biomass gasification techonlogies using LLM.
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    <span className="px-3 py-1 bg-green-500/20 border border-green-500/30 rounded-full text-sm text-green-400">Next.js</span>
+                    {/* <span className="px-3 py-1 bg-green-500/20 border border-green-500/30 rounded-full text-sm text-green-400">Next.js</span> */}
                     <span className="px-3 py-1 bg-green-500/20 border border-green-500/30 rounded-full text-sm text-green-400">AI/ML</span>
-                    <span className="px-3 py-1 bg-green-500/20 border border-green-500/30 rounded-full text-sm text-green-400">TypeScript</span>
+                    <span className="px-3 py-1 bg-green-500/20 border border-green-500/30 rounded-full text-sm text-green-400">Python</span>
+                    <span className="px-3 py-1 bg-green-500/20 border border-green-500/30 rounded-full text-sm text-green-400">LLM</span>
+                    <span className="px-3 py-1 bg-green-500/20 border border-green-500/30 rounded-full text-sm text-green-400">RAG</span>
+                    <span className="px-3 py-1 bg-green-500/20 border border-green-500/30 rounded-full text-sm text-green-400">Data Extraction</span>
+                    <span className="px-3 py-1 bg-green-500/20 border border-green-500/30 rounded-full text-sm text-green-400">Data Analysis</span>
+                    <span className="px-3 py-1 bg-green-500/20 border border-green-500/30 rounded-full text-sm text-green-400">Data Visualization</span>
                   </div>
                 </div>
 
                 {/* Learning */}
                 <div className="space-y-6">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-xl flex items-center justify-center border border-white/30">
+                    {/* <div className="w-12 h-12 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-xl flex items-center justify-center border border-white/30">
                       <div className="text-2xl">📚</div>
-                    </div>
+                    </div> */}
                     <div>
-                      <h3 className="text-xl font-bold text-purple-400">Advanced React Patterns</h3>
-                      <p className="text-sm text-foreground/60">Learning</p>
+                      <h3 className="text-xl font-bold text-purple-400">AI Chatbot Applications</h3>
+                      <p className="text-sm text-foreground/60">Collaborating Project</p>
                     </div>
                   </div>
                   <p className="text-foreground/70 leading-relaxed">
-                    Deep diving into advanced React patterns, performance optimization, and state management to build even better applications.
+                    Collaborating another Bucknell student to build a web application for AiDvocate AI, a company that leverages the power of ethical AI to make positive impact on patient care, employment rights, and human rights.
                   </p>
                   <div className="flex flex-wrap gap-2">
                     <span className="px-3 py-1 bg-purple-500/20 border border-purple-500/30 rounded-full text-sm text-purple-400">React</span>
-                    <span className="px-3 py-1 bg-purple-500/20 border border-purple-500/30 rounded-full text-sm text-purple-400">Performance</span>
-                    <span className="px-3 py-1 bg-purple-500/20 border border-purple-500/30 rounded-full text-sm text-purple-400">Patterns</span>
+                    <span className="px-3 py-1 bg-purple-500/20 border border-purple-500/30 rounded-full text-sm text-purple-400">JavaScript</span>
+                    <span className="px-3 py-1 bg-purple-500/20 border border-purple-500/30 rounded-full text-sm text-purple-400">Next JS</span>
+                    <span className="px-3 py-1 bg-purple-500/20 border border-purple-500/30 rounded-full text-sm text-purple-400">Tailwind</span>
+                    <span className="px-3 py-1 bg-purple-500/20 border border-purple-500/30 rounded-full text-sm text-purple-400">Python</span>
+                    <span className="px-3 py-1 bg-purple-500/20 border border-purple-500/30 rounded-full text-sm text-purple-400">AI/ML</span>
                   </div>
                 </div>
               </div>
 
-              {/* Progress Bar */}
+              {/* Progress Bar 1*/}
               <div className="mt-8">
                 <div className="flex justify-between text-sm text-foreground/60 mb-2">
-                  <span>Project Progress</span>
+                  <span>AI-Powered LCA Framework Progress</span>
                   <span>75%</span>
                 </div>
                 <div className="w-full bg-white/10 rounded-full h-2">
@@ -1087,6 +1095,23 @@ export default function Home() {
                     className="bg-gradient-to-r from-green-500 to-teal-500 h-2 rounded-full"
                     initial={{ width: 0 }}
                     whileInView={{ width: "75%" }}
+                    transition={{ duration: 2, delay: 0.5 }}
+                    viewport={{ once: true }}
+                  />
+                </div>
+              </div>
+
+              {/* Progress Bar 2 - AI Chatbot Applications */}
+              <div className="mt-8">
+                <div className="flex justify-between text-sm text-foreground/60 mb-2">
+                  <span>AI Chatbot Progress</span>
+                  <span>25%</span>
+                </div>
+                <div className="w-full bg-white/10 rounded-full h-2">
+                  <motion.div
+                    className="bg-gradient-to-r from-purple-500 to-pink-500 h-2 rounded-full"
+                    initial={{ width: 0 }}
+                    whileInView={{ width: "25%" }}
                     transition={{ duration: 2, delay: 0.5 }}
                     viewport={{ once: true }}
                   />
@@ -1134,28 +1159,28 @@ export default function Home() {
                 {
                   icon: "🏀",
                   title: "Basketball",
-                  description: "Team captain, love the strategy and teamwork. Teaches me leadership and quick decision-making.",
+                  description: "I have been playing basketball since I was 9 and I enjoy watching the NBA with my friends. My favorite player is Stephen Curry.",
                   color: "from-orange-500/20 to-red-500/20",
                   borderColor: "border-orange-500/30"
                 },
                 {
                   icon: "🎵",
                   title: "Music",
-                  description: "Play guitar and piano. Helps with creative problem-solving and attention to detail.",
+                  description: "I listen to music all the time even when I'm sleeping. My favorite genre is K-pop.",
                   color: "from-purple-500/20 to-pink-500/20",
                   borderColor: "border-purple-500/30"
                 },
                 {
                   icon: "✈️",
                   title: "Travel",
-                  description: "15+ countries visited. Brings global perspective and adaptability to my projects.",
+                  description: "I love travelling with my friends and family. It helps me to relax and get away from the stress of school and work.",
                   color: "from-blue-500/20 to-cyan-500/20",
                   borderColor: "border-blue-500/30"
                 },
                 {
-                  icon: "📚",
-                  title: "Reading",
-                  description: "Tech blogs and sci-fi novels. Keeps me learning and fuels creative thinking.",
+                  icon: "🍿",
+                  title: "Movies",
+                  description: "I love binging K-dramas and movies over the weekend while having dinner",
                   color: "from-green-500/20 to-teal-500/20",
                   borderColor: "border-green-500/30"
                 }
@@ -1181,7 +1206,15 @@ export default function Home() {
                       {/* Icon */}
                       <div className="flex-shrink-0">
                         <div className="w-16 h-16 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center">
-                          <div className="text-2xl">{interest.icon}</div>
+                          {interest.isImage ? (
+                            <img 
+                              src={interest.icon} 
+                              alt={interest.title}
+                              className="w-10 h-10 object-contain"
+                            />
+                          ) : (
+                            <div className="text-2xl">{interest.icon}</div>
+                          )}
                         </div>
                       </div>
                       
@@ -1224,10 +1257,11 @@ export default function Home() {
                          backdropFilter: 'blur(20px) saturate(180%)',
                          WebkitBackdropFilter: 'blur(20px) saturate(180%)',
                        }}>
-                    <div className="w-full h-full bg-gradient-to-br from-orange-500/20 via-purple-500/20 to-blue-500/20 flex items-center justify-center">
-                      <div className="text-4xl">📸</div>
-                    </div>
-                    {/* To add actual photo: <Image src="/images/interests-photo.jpg" alt="Personal Interests" fill className="object-cover" /> */}
+                    <img 
+                      src="/images/birot.png" 
+                      alt="Basketball" 
+                      className="w-full h-full object-cover object-bottom scale-150 -translate-x-8 -translate-y-24"
+                    />
                     {/* Glass overlay */}
                     <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-black/10"></div>
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-white/10"></div>
@@ -1243,8 +1277,8 @@ export default function Home() {
                     viewport={{ once: true }}
                   >
                     <div className="text-center">
-                      <div className="text-2xl font-bold text-orange-400">🏆</div>
-                      <div className="text-xs text-foreground/70">Team Captain</div>
+                      <div className="text-2xl font-bold text-orange-400">🥇</div>
+                      <div className="text-xs text-foreground/70">Multiple medals</div>
                     </div>
                   </motion.div>
 
@@ -1257,8 +1291,8 @@ export default function Home() {
                     viewport={{ once: true }}
                   >
                     <div className="text-center">
-                      <div className="text-2xl font-bold text-purple-400">🎸</div>
-                      <div className="text-xs text-foreground/70">Guitar & Piano</div>
+                      <div className="text-2xl font-bold text-purple-400">👥</div>
+                      <div className="text-xs text-foreground/70">Me & my bestie</div>
                     </div>
                   </motion.div>
                 </motion.div>
