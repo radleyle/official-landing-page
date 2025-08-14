@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useState, use } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getProjectById } from "../../../lib/projects";
 import { 
@@ -23,9 +24,15 @@ import {
   SiMui,
   SiD3Dotjs,
   SiChartdotjs,
-  SiMapbox
+  SiMapbox,
+  SiTensorflow,
+  SiKeras,
+  SiScikitlearn,
+  SiPandas,
+  SiNumpy,
+  SiJava
 } from "react-icons/si";
-import { FaArrowLeft, FaExternalLinkAlt, FaGithub, FaClock, FaCheckCircle } from "react-icons/fa";
+import { FaArrowLeft, FaExternalLinkAlt, FaGithub, FaClock, FaCheckCircle, FaSpinner, FaPause, FaFileAlt } from "react-icons/fa";
 
 // Icon mapping for technologies
 const techIcons = {
@@ -47,8 +54,33 @@ const techIcons = {
   "D3.js": { icon: SiD3Dotjs, color: "#F9A03C" },
   "Chart.js": { icon: SiChartdotjs, color: "#FF6384" },
   "Mapbox": { icon: SiMapbox, color: "#000000" },
-  "PWA": { icon: SiReact, color: "#61DAFB" }, // Using React icon as fallback
-  "OpenWeather API": { icon: SiReact, color: "#61DAFB" } // Using React icon as fallback
+  "PWA": { icon: SiReact, color: "#61DAFB" },
+  "OpenWeather API": { icon: SiReact, color: "#61DAFB" },
+  // AI/ML Technologies
+  "Machine Learning": { icon: SiTensorflow, color: "#FF6F00" },
+  "TensorFlow": { icon: SiTensorflow, color: "#FF6F00" },
+  "Keras": { icon: SiKeras, color: "#D00000" },
+  "Scikit-learn": { icon: SiScikitlearn, color: "#F7931E" },
+  "Pandas": { icon: SiPandas, color: "#150458" },
+  "NumPy": { icon: SiNumpy, color: "#013243" },
+  "RAG": { icon: SiPython, color: "#3776AB" },
+  // AI/ML Research Technologies
+  "Transformers": { icon: SiPython, color: "#3776AB" },
+  "FAISS": { icon: SiPython, color: "#3776AB" },
+  "BM25": { icon: SiPython, color: "#3776AB" },
+  "spaCy": { icon: SiPython, color: "#3776AB" },
+  "Hugging Face": { icon: SiPython, color: "#3776AB" },
+  // Java/Game Development Technologies
+  "Java": { icon: "/images/java_original_logo.png", color: "#ED8B00", isImage: true },
+  "JavaFX": { icon: "/images/java_original_logo.png", color: "#ED8B00", isImage: true },
+  "OOP": { icon: "/images/java_original_logo.png", color: "#ED8B00", isImage: true },
+  "Object-Oriented Programming": { icon: "/images/java_original_logo.png", color: "#ED8B00", isImage: true },
+  "Game Development": { icon: "/images/java_original_logo.png", color: "#ED8B00", isImage: true },
+  "2D Game Development": { icon: "/images/java_original_logo.png", color: "#ED8B00", isImage: true },
+  "Tile-Based Exploration": { icon: "/images/java_original_logo.png", color: "#ED8B00", isImage: true },
+  "Dynamic Enemy AI": { icon: "/images/java_original_logo.png", color: "#ED8B00", isImage: true },
+  "Interactive Quiz Systems": { icon: "/images/java_original_logo.png", color: "#ED8B00", isImage: true },
+  "Multi-Level Progression": { icon: "/images/java_original_logo.png", color: "#ED8B00", isImage: true }
 };
 
 export default function ProjectDetail({ params }) {
@@ -86,6 +118,22 @@ export default function ProjectDetail({ params }) {
               <span>Back to Portfolio</span>
             </Link>
             <div className="flex items-center gap-4">
+              {project.paperUrl && (
+                <a
+                  href={project.paperUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative flex items-center gap-2 px-4 py-2 bg-white/[0.12] dark:bg-black/[0.12] backdrop-blur-3xl border border-white/50 dark:border-white/30 text-foreground rounded-full hover:bg-white/[0.20] dark:hover:bg-black/[0.20] transition-all duration-500 text-sm shadow-2xl hover:shadow-3xl overflow-hidden"
+                  style={{
+                    backdropFilter: 'blur(40px) saturate(200%) brightness(1.2)',
+                    WebkitBackdropFilter: 'blur(40px) saturate(200%) brightness(1.2)',
+                    boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 25px 50px -12px rgba(0, 0, 0, 0.25)'
+                  }}
+                >
+                  <FaFileAlt size={14} />
+                  Research Paper
+                </a>
+              )}
               {project.demoUrl && (
                 <a
                   href={project.demoUrl}
@@ -142,7 +190,10 @@ export default function ProjectDetail({ params }) {
                 <span>{project.timeline}</span>
               </div>
               <div className="flex items-center gap-2">
-                <FaCheckCircle className="text-green-500" />
+                {project.status === "Completed" && <FaCheckCircle className="text-green-500" />}
+                {project.status === "In Progress" && <FaSpinner className="text-yellow-500" />}
+                {project.status === "On Hold" && <FaPause className="text-orange-500" />}
+                {project.status === "Beta" && <FaCheckCircle className="text-blue-500" />}
                 <span>{project.status}</span>
               </div>
             </div>
@@ -155,13 +206,23 @@ export default function ProjectDetail({ params }) {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative aspect-video bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl overflow-hidden mb-12"
           >
-            {/* Placeholder for project image */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="text-white/80 text-center">
-                <div className="text-4xl mb-2">🖥️</div>
-                <p>Project Screenshot</p>
+            {project.image ? (
+              <Image
+                src={project.image}
+                alt={`${project.title} - Project Screenshot`}
+                fill
+                className="object-cover"
+                priority
+              />
+            ) : (
+              /* Fallback placeholder */
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="text-white/80 text-center">
+                  <div className="text-4xl mb-2">🖥️</div>
+                  <p>Project Screenshot</p>
+                </div>
               </div>
-            </div>
+            )}
           </motion.div>
         </div>
       </section>
@@ -196,11 +257,8 @@ export default function ProjectDetail({ params }) {
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
                   <h3 className="text-2xl font-bold mb-4">Project Overview</h3>
-                  <p className="text-foreground/70 leading-relaxed mb-6">
-                    {project.description}
-                  </p>
-                  <p className="text-foreground/70 leading-relaxed">
-                    {project.shortDescription}
+                  <p className="text-foreground/70 leading-relaxed text-lg">
+                    {project.overview || project.description}
                   </p>
                 </div>
                 <div className="space-y-6">
@@ -283,51 +341,21 @@ export default function ProjectDetail({ params }) {
               </div>
             )}
 
-            {activeTab === "technologies" && (
+                        {activeTab === "technologies" && (
               <div>
                 <h3 className="text-2xl font-bold mb-6">Technologies Used</h3>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                  {project.technologies.map((tech, index) => {
-                    const techInfo = techIcons[tech] || { icon: SiReact, color: "#61DAFB" };
-                    const IconComponent = techInfo.icon;
-                    
-                    return (
-                      <motion.div
-                        key={tech}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: index * 0.1 }}
-                        className="relative text-center p-6 rounded-3xl bg-white/[0.08] dark:bg-white/[0.04] backdrop-blur-3xl border border-white/40 dark:border-white/25 hover:bg-white/[0.15] dark:hover:bg-white/[0.08] transition-all duration-700 shadow-2xl hover:shadow-3xl hover:scale-105 group overflow-hidden"
-                style={{
-                  backdropFilter: 'blur(40px) saturate(200%) brightness(1.15)',
-                  WebkitBackdropFilter: 'blur(40px) saturate(200%) brightness(1.15)',
-                  boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 25px 50px -12px rgba(0, 0, 0, 0.25)'
-                }}
-                      >
-                        {/* Glass reflection overlay */}
-                        <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-white/25 via-white/5 to-transparent opacity-70"></div>
-                        
-                        <div className="relative z-10 flex flex-col items-center space-y-3">
-                          <div className="relative">
-                            <IconComponent 
-                              size={48} 
-                              style={{ color: techInfo.color }}
-                              className="drop-shadow-lg"
-                            />
-                            {/* Icon glow effect */}
-                            <div 
-                              className="absolute inset-0 rounded-full blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-500"
-                              style={{ backgroundColor: techInfo.color }}
-                            ></div>
-                          </div>
-                          <div className="text-sm font-medium text-foreground/90">{tech}</div>
-                        </div>
-                        
-                        {/* Floating glass particle */}
-                        <div className="absolute -top-1 -right-1 w-4 h-4 bg-white/30 rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                      </motion.div>
-                    );
-                  })}
+                <div className="flex flex-wrap gap-3">
+                  {project.technologies.map((tech, index) => (
+                    <motion.span
+                      key={tech}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: index * 0.1 }}
+                      className="px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/30 rounded-full text-sm text-foreground/80 hover:bg-white/20 transition-colors"
+                    >
+                      {tech}
+                    </motion.span>
+                  ))}
                 </div>
               </div>
             )}
@@ -346,9 +374,20 @@ export default function ProjectDetail({ params }) {
           >
             <h3 className="text-3xl font-bold mb-6">Interested in This Project?</h3>
             <p className="text-lg text-foreground/70 mb-8">
-              Check out the live demo or view the source code on GitHub.
+              {project.paperUrl ? "Check out our paper" : "Check out the live demo or view the source code on GitHub."}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              {project.paperUrl && (
+                <a
+                  href={project.paperUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-8 py-3 bg-foreground text-background rounded-full hover:bg-foreground/90 transition-colors"
+                >
+                  <FaFileAlt />
+                  Read Research Paper
+                </a>
+              )}
               {project.demoUrl && (
                 <a
                   href={project.demoUrl}

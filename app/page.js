@@ -29,7 +29,8 @@ import {
   FiMail, 
   FiGithub,
   FiLinkedin,
-  FiExternalLink
+  FiExternalLink,
+  FiFileText
 } from "react-icons/fi";
 import { 
   SiJavascript,
@@ -175,7 +176,7 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              {['about', 'skills', 'projects', 'experience', 'interests', 'contact'].map((section, index) => (
+              {['about', 'skills', 'projects', 'experience', 'contact'].map((section, index) => (
                 <motion.button
                   key={section}
                   onClick={() => scrollToSection(section)}
@@ -245,7 +246,7 @@ export default function Home() {
             transition={{ duration: 0.3 }}
           >
             <div className="px-6 py-4 space-y-2">
-              {['about', 'skills', 'projects', 'experience', 'interests', 'contact'].map((section) => (
+              {['about', 'skills', 'projects', 'experience', 'contact'].map((section) => (
                 <motion.button
                   key={section}
                   onClick={() => {
@@ -1145,16 +1146,14 @@ export default function Home() {
             </p>
           </motion.div>
 
-                    <div className="grid lg:grid-cols-2 gap-16 items-start">
-            
-            {/* Left Side - Performance-Optimized Interest Boxes */}
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true, margin: "-50px" }}
-              className="space-y-6"
-            >
+          {/* Centered Interest Boxes Grid */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true, margin: "-50px" }}
+            className="grid md:grid-cols-2 gap-6"
+          >
               {[
                 {
                   icon: "🏀",
@@ -1234,112 +1233,6 @@ export default function Home() {
                   </div>
                 </motion.div>
               ))}
-            </motion.div>
-
-            {/* Right Side - Photo */}
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1, delay: 0.4 }}
-              viewport={{ once: true }}
-              className="relative"
-            >
-              {/* Main Photo with Floating Elements */}
-              <div className="relative group">
-                <motion.div 
-                  className="relative w-[450px] h-[600px] mx-auto"
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ duration: 0.5 }}
-                >
-                  {/* Photo Container */}
-                  <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl border border-white/30 dark:border-white/20 backdrop-blur-xl"
-                       style={{
-                         backdropFilter: 'blur(20px) saturate(180%)',
-                         WebkitBackdropFilter: 'blur(20px) saturate(180%)',
-                       }}>
-                    <img 
-                      src="/images/birot.png" 
-                      alt="Basketball" 
-                      className="w-full h-full object-cover object-bottom scale-150 -translate-x-8 -translate-y-24"
-                    />
-                    {/* Glass overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-black/10"></div>
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-white/10"></div>
-                  </div>
-                  
-                  {/* Floating Achievement Cards */}
-                  <motion.div 
-                    className="absolute -top-6 -right-6 bg-white/10 backdrop-blur-xl border border-white/30 rounded-2xl p-4 shadow-xl"
-                    initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
-                    whileInView={{ opacity: 1, scale: 1, rotate: -5 }}
-                    transition={{ duration: 0.8, delay: 0.8 }}
-                    whileHover={{ rotate: 0, scale: 1.05 }}
-                    viewport={{ once: true }}
-                  >
-                    <div className="text-center">
-                      <div className="text-2xl font-bold text-orange-400">🥇</div>
-                      <div className="text-xs text-foreground/70">Multiple medals</div>
-                    </div>
-                  </motion.div>
-
-                  <motion.div 
-                    className="absolute -bottom-4 -left-8 bg-white/10 backdrop-blur-xl border border-white/30 rounded-2xl p-4 shadow-xl"
-                    initial={{ opacity: 0, scale: 0.8, rotate: 10 }}
-                    whileInView={{ opacity: 1, scale: 1, rotate: 5 }}
-                    transition={{ duration: 0.8, delay: 1 }}
-                    whileHover={{ rotate: 0, scale: 1.05 }}
-                    viewport={{ once: true }}
-                  >
-                    <div className="text-center">
-                      <div className="text-2xl font-bold text-purple-400">👥</div>
-                      <div className="text-xs text-foreground/70">Me & my bestie</div>
-                    </div>
-                  </motion.div>
-                </motion.div>
-              </div>
-            </motion.div>
-          </div>
-
-          {/* Fun Facts */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            viewport={{ once: true }}
-            className="mt-16"
-          >
-            <div className="relative bg-white/[0.08] backdrop-blur-xl border border-white/30 rounded-3xl p-8 shadow-2xl overflow-hidden"
-                 style={{
-                   backdropFilter: 'blur(40px) saturate(200%) brightness(1.15)',
-                   WebkitBackdropFilter: 'blur(40px) saturate(200%) brightness(1.15)',
-                   boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 25px 50px -12px rgba(0, 0, 0, 0.25)'
-                 }}>
-              {/* Glass reflection overlay */}
-              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-white/20 via-white/5 to-transparent opacity-70"></div>
-              
-              <div className="relative z-10 text-center">
-                <h3 className="text-2xl font-bold mb-6 text-foreground">Fun Facts</h3>
-                <div className="grid md:grid-cols-3 gap-6">
-                  {[
-                    { fact: "Can solve a Rubik's cube in under 2 minutes", emoji: "🧩" },
-                    { fact: "Speak 3 languages fluently", emoji: "🗣️" },
-                    { fact: "Once coded for 36 hours straight", emoji: "☕" }
-                  ].map((item, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
-                      viewport={{ once: true }}
-                      className="text-center"
-                    >
-                      <div className="text-3xl mb-3">{item.emoji}</div>
-                      <p className="text-foreground/70 text-sm">{item.fact}</p>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-            </div>
           </motion.div>
         </div>
       </section>
@@ -1363,7 +1256,7 @@ export default function Home() {
               Resume
             </h2>
             <p className="text-xl text-foreground/60 max-w-2xl mx-auto">
-              Download my resume to learn more about my experience and qualifications
+              See my resume to learn more about my experience and qualifications
             </p>
           </motion.div>
 
@@ -1391,16 +1284,16 @@ export default function Home() {
                 
                 <h3 className="text-2xl font-bold mb-4">Nguyen Le - Resume</h3>
                 <p className="text-foreground/70 mb-8 max-w-2xl mx-auto">
-                  Full-stack developer with expertise in modern web technologies, AI/ML, and creating exceptional digital experiences.
+                  Full-stack developer and ML researcher with experience in modern web technologies, AI/ML.
                 </p>
                 
                 <div className="grid md:grid-cols-3 gap-6 mb-8">
                   <div className="text-center p-4 bg-white/[0.05] backdrop-blur-xl border border-white/20 rounded-xl">
-                    <div className="text-2xl font-bold text-blue-400 mb-2">3+</div>
+                    <div className="text-2xl font-bold text-blue-400 mb-2">2+</div>
                     <div className="text-sm text-foreground/70">Years Experience</div>
                   </div>
                   <div className="text-center p-4 bg-white/[0.05] backdrop-blur-xl border border-white/20 rounded-xl">
-                    <div className="text-2xl font-bold text-purple-400 mb-2">50+</div>
+                    <div className="text-2xl font-bold text-purple-400 mb-2">10+</div>
                     <div className="text-sm text-foreground/70">Projects Completed</div>
                   </div>
                   <div className="text-center p-4 bg-white/[0.05] backdrop-blur-xl border border-white/20 rounded-xl">
@@ -1479,14 +1372,39 @@ export default function Home() {
                   >
                     <div className="grid lg:grid-cols-2 gap-0">
                       {/* Project Preview */}
-                      <div className="relative aspect-[4/3] lg:aspect-auto bg-gradient-to-br from-blue-600/20 via-purple-600/20 to-cyan-600/20 flex items-center justify-center">
-                        <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent"></div>
-                        <div className="relative text-center text-white/80 p-8">
-                          <div className="w-20 h-20 mx-auto mb-4 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center border border-white/30">
-                            <div className="text-2xl">✨</div>
-                          </div>
-                          <p className="text-sm opacity-90">Click to explore project</p>
-                        </div>
+                      <div className="relative aspect-[4/3] lg:aspect-auto bg-gradient-to-br from-blue-600/20 via-purple-600/20 to-cyan-600/20 overflow-hidden">
+                        {project.image ? (
+                          <>
+                            <Image
+                              src={project.image}
+                              alt={`${project.title} - Project Screenshot`}
+                              fill
+                              className="object-cover"
+                              sizes="(max-width: 768px) 100vw, 50vw"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-br from-black/20 via-transparent to-black/40"></div>
+                            <div className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                              <div className="text-center text-white p-4">
+                                <div className="w-16 h-16 mx-auto mb-3 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center border border-white/30">
+                                  <div className="text-xl">✨</div>
+                                </div>
+                                <p className="text-sm opacity-90">Click to explore project</p>
+                              </div>
+                            </div>
+                          </>
+                        ) : (
+                          <>
+                            <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent"></div>
+                            <div className="relative text-center text-white/80 p-8 flex items-center justify-center h-full">
+                              <div>
+                                <div className="w-20 h-20 mx-auto mb-4 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center border border-white/30">
+                                  <div className="text-2xl">✨</div>
+                                </div>
+                                <p className="text-sm opacity-90">Click to explore project</p>
+                              </div>
+                            </div>
+                          </>
+                        )}
                       </div>
                       
                       {/* Project Details */}
@@ -1521,6 +1439,18 @@ export default function Home() {
 
                           {/* Action Buttons */}
                           <div className="flex gap-4">
+                            {project.paperUrl && (
+                              <a 
+                                href={project.paperUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center gap-2 px-6 py-3 bg-green-500/20 backdrop-blur-sm border border-green-500/30 rounded-xl text-green-400 hover:bg-green-500/30 transition-all duration-300"
+                                onClick={(e) => e.stopPropagation()}
+                              >
+                                <FiFileText size={16} />
+                                Research Paper
+                              </a>
+                            )}
                             {project.demoUrl && (
                               <a 
                                 href={project.demoUrl}
