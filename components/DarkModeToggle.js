@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react';
 
 export default function DarkModeToggle() {
   const [mounted, setMounted] = useState(false);
+  const { isDark, toggleTheme } = useTheme();
   
   useEffect(() => {
     setMounted(true);
@@ -19,8 +20,6 @@ export default function DarkModeToggle() {
       </div>
     );
   }
-
-  const { isDark, toggleTheme } = useTheme();
 
   return (
     <motion.button

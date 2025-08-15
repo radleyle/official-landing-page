@@ -301,7 +301,7 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                <span className="text-white">Hi, I'm</span>{" "}
+                <span className="text-white">Hi, I&apos;m</span>{" "}
                 <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
                   <TypewriterText 
                     texts={["Nguyen", "Radley", "an AI & Software Engineer"]}
@@ -487,7 +487,7 @@ export default function Home() {
               My Story
             </h2>
             <p className="text-xl text-foreground/60 max-w-2xl mx-auto">
-              From code to creation, here's my journey in the world of technology
+              From code to creation, here&apos;s my journey in the world of technology
             </p>
           </motion.div>
 
@@ -658,7 +658,7 @@ export default function Home() {
                     whileInView={{ opacity: 1 }}
                     transition={{ duration: 0.8, delay: 1 }}
                   >
-                    I came to Bucknell as an Early Childhood Education major with a desire to follow my family's footsteps. However, I quickly discovered my passion for software development and computer science.
+                    I came to Bucknell as an Early Childhood Education major with a desire to follow my family&apos;s footsteps. However, I quickly discovered my passion for software development and computer science.
                   </motion.p>
                 </div>
               </motion.div>
@@ -716,7 +716,7 @@ export default function Home() {
                     whileInView={{ opacity: 1 }}
                     transition={{ duration: 0.8, delay: 1.4 }}
                   >
-                    Always learning, always growing. I'm excited about the intersection of AI and web development, and I love collaborating with teams to bring innovative ideas to life.
+                    Always learning, always growing. I&apos;m excited about the intersection of AI and web development, and I love collaborating with teams to bring innovative ideas to life.
                   </motion.p>
                 </div>
               </motion.div>
@@ -1328,7 +1328,7 @@ export default function Home() {
               Currently Working On
             </h2>
             <p className="text-xl text-foreground/60 max-w-2xl mx-auto">
-              Here's what I'm building and learning right now
+              Here&apos;s what I&apos;m building and learning right now
             </p>
           </motion.div>
 
@@ -1966,10 +1966,10 @@ export default function Home() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent leading-tight pb-2" style={{ lineHeight: '1.1' }}>
-              Let's Work Together
+              Let&apos;s Work Together
             </h2>
             <p className="text-xl text-foreground/60 max-w-2xl mx-auto">
-              Ready to bring your ideas to life? Let's connect
+              Ready to bring your ideas to life? Let&apos;s connect
             </p>
           </motion.div>
 

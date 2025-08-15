@@ -126,7 +126,7 @@ export default function ContactForm() {
       <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-white/20 via-white/5 to-transparent opacity-70 pointer-events-none"></div>
       
       <div className="relative z-10 space-y-6">
-        <h3 className="text-2xl font-bold text-center mb-8">Let's Connect</h3>
+        <h3 className="text-2xl font-bold text-center mb-8">Let&apos;s Connect</h3>
         
         {/* Name Field */}
         <div className="relative">
