@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Your Name - Portfolio",
-  description: "Full-Stack Developer & UI/UX Designer passionate about creating elegant solutions that bridge the gap between design and technology.",
+  title: "Nguyen Le - Portfolio",
+  description: "Computer Science student at Bucknell University passionate about AI research and full-stack development. Published researcher with hands-on experience in machine learning, web development, and collaborative software engineering.",
 };
 
 export default function RootLayout({ children }) {
