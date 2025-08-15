@@ -910,7 +910,7 @@ export default function Home() {
                 <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-yellow-500/20 to-amber-500/20 rounded-xl flex items-center justify-center border border-white/30">
                   <FiAward className="text-2xl text-yellow-400" />
                 </div>
-                <h3 className="text-lg font-bold mb-2 text-foreground">Dean's List</h3>
+                <h3 className="text-lg font-bold mb-2 text-foreground">Dean&apos;s List</h3>
                 <p className="text-sm text-foreground/70 mb-3">Multiple Semesters</p>
                 <p className="text-xs text-foreground/60">Academic excellence recognition for maintaining high GPA</p>
               </div>
