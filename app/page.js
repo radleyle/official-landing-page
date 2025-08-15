@@ -30,8 +30,18 @@ import {
   FiGithub,
   FiLinkedin,
   FiExternalLink,
-  FiFileText
+  FiFileText,
+  FiAward,
+  FiUsers,
+  FiTrendingUp,
+  FiBook,
+  FiTarget,
+  FiStar
 } from "react-icons/fi";
+import { 
+  HiAcademicCap,
+  HiCurrencyDollar 
+} from "react-icons/hi";
 import { 
   SiJavascript,
   SiHtml5,
@@ -69,7 +79,7 @@ export default function Home() {
           setShowBackToTop(window.scrollY > 1);
           
           // Update active section based on scroll position
-          const sections = ['home', 'about', 'skills', 'projects', 'experience', 'contact'];
+          const sections = ['home', 'about', 'education', 'skills', 'projects', 'experience', 'contact'];
           const scrollPosition = window.scrollY + 100;
           
           for (let i = sections.length - 1; i >= 0; i--) {
@@ -155,20 +165,7 @@ export default function Home() {
       {/* Navigation Bar */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/10 dark:bg-black/5 backdrop-blur-md border-b border-white/20 dark:border-white/10">
         <div className="max-w-6xl mx-auto px-6 py-3">
-          <div className="flex items-center justify-between">
-            {/* Logo */}
-            <motion.div 
-              className="flex items-center space-x-2"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">NL</span>
-              </div>
-              <span className="text-gray-900 dark:text-white font-medium text-base">Nguyen Le</span>
-            </motion.div>
-
+          <div className="flex items-center justify-center">
             {/* Navigation Links - Desktop */}
             <motion.div 
               className="hidden md:flex items-center space-x-6"
@@ -176,7 +173,7 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              {['about', 'skills', 'projects', 'experience', 'contact'].map((section, index) => (
+              {['about', 'education', 'skills', 'projects', 'experience', 'contact'].map((section, index) => (
                 <motion.button
                   key={section}
                   onClick={() => scrollToSection(section)}
@@ -215,7 +212,7 @@ export default function Home() {
             {/* Mobile Menu Button */}
             <motion.button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2 rounded-lg bg-white/[0.08] backdrop-blur-xl border border-white/20"
+              className="md:hidden absolute right-6 p-2 rounded-lg bg-white/[0.08] backdrop-blur-xl border border-white/20"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -246,7 +243,7 @@ export default function Home() {
             transition={{ duration: 0.3 }}
           >
             <div className="px-6 py-4 space-y-2">
-              {['about', 'skills', 'projects', 'experience', 'contact'].map((section) => (
+              {['about', 'education', 'skills', 'projects', 'experience', 'contact'].map((section) => (
                 <motion.button
                   key={section}
                   onClick={() => {
@@ -321,8 +318,29 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
               >
-                Computer Science student at Bucknell (GPA 3.60) with research published at ICML VecDB 2025, hands-on AI chatbot and LCA modeling experience, and strong skills in Python, Java, and React.
+                Computer Science student at Bucknell University passionate about AI research and full-stack development. Published researcher with hands-on experience in machine learning, web development, and collaborative software engineering.
               </motion.p>
+
+              {/* Key Metrics */}
+              <motion.div
+                className="grid grid-cols-3 gap-6 max-w-lg mx-auto lg:mx-0"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+              >
+                <div className="text-center lg:text-left">
+                  <div className="text-2xl md:text-3xl font-bold text-blue-400">3.6</div>
+                  <div className="text-xs md:text-sm text-gray-400">GPA</div>
+                </div>
+                <div className="text-center lg:text-left">
+                  <div className="text-2xl md:text-3xl font-bold text-purple-400">10+</div>
+                  <div className="text-xs md:text-sm text-gray-400">Projects</div>
+                </div>
+                <div className="text-center lg:text-left">
+                  <div className="text-2xl md:text-3xl font-bold text-pink-400">1</div>
+                  <div className="text-xs md:text-sm text-gray-400">Publication</div>
+                </div>
+              </motion.div>
               
               <motion.div
                 className="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start"
@@ -403,14 +421,10 @@ export default function Home() {
                     }}
                   >
         <Image
-                      src="/images/kyyeu.png"
+                      src="/images/main2.png"
                       alt="Radley - Profile Photo"
                       fill
                       className="object-cover hover:scale-110 transition-transform duration-700"
-                      style={{ 
-                        objectPosition: '35% 15%',
-                        transform: 'scale(1.1) translateY(16px) translateX(-8px)'
-                      }}
           priority
         />
                     {/* Glass overlay for depth */}
@@ -502,10 +516,10 @@ export default function Home() {
                          WebkitBackdropFilter: 'blur(20px) saturate(180%)',
                        }}>
             <Image
-                      src="/images/concert.png"
+                      src="/images/about_me_2.png"
                       alt="Radley - Professional Photo"
                       fill
-                      className="object-cover transition-transform duration-700 scale-150 -translate-y-12 translate-x-6"
+                      className="object-cover transition-transform duration-700 scale-125 -translate-y-12 -translate-x-6"
                       priority
                     />
                     {/* Glass overlay */}
@@ -732,7 +746,308 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Education Section */}
+      <section id="education" className="py-32 relative">
+        {/* Background glass elements */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="absolute top-16 left-1/4 w-48 h-48 bg-gradient-to-br from-emerald-300/10 to-transparent rounded-full blur-3xl"></div>
+          <div className="absolute bottom-16 right-1/4 w-40 h-40 bg-gradient-to-br from-teal-300/10 to-transparent rounded-full blur-3xl"></div>
+        </div>
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent leading-tight pb-2" style={{ lineHeight: '1.1' }}>
+              Education
+            </h2>
+            <p className="text-xl text-foreground/60 max-w-2xl mx-auto">
+              Academic foundation and continuous learning journey
+            </p>
+          </motion.div>
 
+          <div className="grid lg:grid-cols-2 gap-8">
+            {/* Main Degree */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="relative bg-white/[0.08] backdrop-blur-xl border border-white/30 rounded-3xl p-8 shadow-xl group hover:shadow-2xl transition-all duration-500 overflow-hidden"
+              style={{
+                backdropFilter: 'blur(30px) saturate(180%)',
+                WebkitBackdropFilter: 'blur(30px) saturate(180%)',
+                boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 20px 40px -12px rgba(0, 0, 0, 0.2)'
+              }}
+            >
+              {/* Glass reflection overlay */}
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-emerald-500/20 via-transparent to-teal-500/20 opacity-50"></div>
+              
+              <div className="relative z-10">
+                <div className="flex items-center mb-6">
+                  <div className="w-16 h-16 bg-gradient-to-br from-emerald-500/20 to-teal-500/20 rounded-xl flex items-center justify-center border border-white/30 mr-4">
+                    <HiAcademicCap className="text-2xl text-emerald-400" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-foreground">Bachelor of Science in Computer Science</h3>
+                    <p className="text-emerald-400 font-medium">Bucknell University</p>
+                  </div>
+                </div>
+                
+                <div className="space-y-4">
+                  <div className="flex justify-between items-center">
+                    <span className="text-foreground/70">Expected Graduation:</span>
+                    <span className="font-medium">May 2027</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-foreground/70">GPA:</span>
+                    <span className="font-medium">3.6/4.0</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-foreground/70">Focus Areas:</span>
+                    <span className="font-medium">AI/ML, Software Engineering</span>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Relevant Coursework */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="relative bg-white/[0.08] backdrop-blur-xl border border-white/30 rounded-3xl p-8 shadow-xl group hover:shadow-2xl transition-all duration-500 overflow-hidden"
+              style={{
+                backdropFilter: 'blur(30px) saturate(180%)',
+                WebkitBackdropFilter: 'blur(30px) saturate(180%)',
+                boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 20px 40px -12px rgba(0, 0, 0, 0.2)'
+              }}
+            >
+              {/* Glass reflection overlay */}
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-teal-500/20 via-transparent to-cyan-500/20 opacity-50"></div>
+              
+              <div className="relative z-10">
+                <div className="flex items-center mb-6">
+                  <div className="w-16 h-16 bg-gradient-to-br from-teal-500/20 to-cyan-500/20 rounded-xl flex items-center justify-center border border-white/30 mr-4">
+                    <FiBook className="text-2xl text-teal-400" />
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground">Relevant Coursework</h3>
+                </div>
+                
+                <div className="grid grid-cols-1 gap-3">
+                  {[
+                    "Data Structures & Algorithms",
+                    "Object-Oriented Programming", 
+                    "Software Engineering Principles",
+                    "Machine Learning",
+                    "Discrete Math",
+                    "Research Methods"
+                  ].map((course, index) => (
+                    <motion.div
+                      key={course}
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: index * 0.1 }}
+                      viewport={{ once: true }}
+                      className="flex items-center p-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg hover:bg-white/20 transition-colors"
+                    >
+                      <div className="w-2 h-2 bg-teal-400 rounded-full mr-3"></div>
+                      <span className="text-sm text-foreground/80">{course}</span>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Achievements Section */}
+      <section id="achievements" className="py-32 relative">
+        {/* Background glass elements */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="absolute top-20 left-1/4 w-44 h-44 bg-gradient-to-br from-yellow-300/10 to-transparent rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-1/4 w-52 h-52 bg-gradient-to-br from-amber-300/10 to-transparent rounded-full blur-3xl"></div>
+        </div>
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-yellow-600 to-amber-600 bg-clip-text text-transparent leading-tight pb-2" style={{ lineHeight: '1.1' }}>
+              Achievements & Awards
+            </h2>
+            <p className="text-xl text-foreground/60 max-w-2xl mx-auto">
+              Recognition for academic excellence and research contributions
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Academic Achievement */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ scale: 1.05, y: -5, transition: { duration: 0.2 } }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+              className="relative bg-white/[0.08] backdrop-blur-xl border border-white/30 rounded-3xl p-6 shadow-xl group hover:shadow-2xl transition-all duration-500 overflow-hidden cursor-pointer"
+              style={{
+                backdropFilter: 'blur(30px) saturate(180%)',
+                WebkitBackdropFilter: 'blur(30px) saturate(180%)',
+                boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 20px 40px -12px rgba(0, 0, 0, 0.2)'
+              }}
+            >
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-yellow-500/20 via-transparent to-amber-500/20 opacity-50"></div>
+              
+              <div className="relative z-10 text-center">
+                <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-yellow-500/20 to-amber-500/20 rounded-xl flex items-center justify-center border border-white/30">
+                  <FiAward className="text-2xl text-yellow-400" />
+                </div>
+                <h3 className="text-lg font-bold mb-2 text-foreground">Dean's List</h3>
+                <p className="text-sm text-foreground/70 mb-3">Multiple Semesters</p>
+                <p className="text-xs text-foreground/60">Academic excellence recognition for maintaining high GPA</p>
+              </div>
+            </motion.div>
+
+            {/* Research Achievement */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ scale: 1.05, y: -5, transition: { duration: 0.2 } }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="relative bg-white/[0.08] backdrop-blur-xl border border-white/30 rounded-3xl p-6 shadow-xl group hover:shadow-2xl transition-all duration-500 overflow-hidden cursor-pointer"
+              style={{
+                backdropFilter: 'blur(30px) saturate(180%)',
+                WebkitBackdropFilter: 'blur(30px) saturate(180%)',
+                boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 20px 40px -12px rgba(0, 0, 0, 0.2)'
+              }}
+            >
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-blue-500/20 via-transparent to-purple-500/20 opacity-50"></div>
+              
+              <div className="relative z-10 text-center">
+                <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-xl flex items-center justify-center border border-white/30">
+                  <FiFileText className="text-2xl text-blue-400" />
+                </div>
+                <h3 className="text-lg font-bold mb-2 text-foreground">ICML VecDB 2025</h3>
+                <p className="text-sm text-foreground/70 mb-3">Research Publication</p>
+                <p className="text-xs text-foreground/60">Published entropy-based RAG retrieval research</p>
+              </div>
+            </motion.div>
+
+            {/* Academic Scholarship */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ scale: 1.05, y: -5, transition: { duration: 0.2 } }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="relative bg-white/[0.08] backdrop-blur-xl border border-white/30 rounded-3xl p-6 shadow-xl group hover:shadow-2xl transition-all duration-500 overflow-hidden cursor-pointer"
+              style={{
+                backdropFilter: 'blur(30px) saturate(180%)',
+                WebkitBackdropFilter: 'blur(30px) saturate(180%)',
+                boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 20px 40px -12px rgba(0, 0, 0, 0.2)'
+              }}
+            >
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-green-500/20 via-transparent to-emerald-500/20 opacity-50"></div>
+              
+              <div className="relative z-10 text-center">
+                <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-green-500/20 to-emerald-500/20 rounded-xl flex items-center justify-center border border-white/30">
+                  <FiStar className="text-2xl text-green-400" />
+                </div>
+                <h3 className="text-lg font-bold mb-2 text-foreground">Academic Research</h3>
+                <p className="text-sm text-foreground/70 mb-3">Multiple Institutions</p>
+                <p className="text-xs text-foreground/60">Active researcher at Bucknell University and Algoverse</p>
+              </div>
+            </motion.div>
+
+            {/* Basketball Achievement */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ scale: 1.05, y: -5, transition: { duration: 0.2 } }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: true }}
+              className="relative bg-white/[0.08] backdrop-blur-xl border border-white/30 rounded-3xl p-6 shadow-xl group hover:shadow-2xl transition-all duration-500 overflow-hidden cursor-pointer"
+              style={{
+                backdropFilter: 'blur(30px) saturate(180%)',
+                WebkitBackdropFilter: 'blur(30px) saturate(180%)',
+                boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 20px 40px -12px rgba(0, 0, 0, 0.2)'
+              }}
+            >
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-orange-500/20 via-transparent to-red-500/20 opacity-50"></div>
+              
+              <div className="relative z-10 text-center">
+                <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-orange-500/20 to-red-500/20 rounded-xl flex items-center justify-center border border-white/30">
+                  <FiTarget className="text-2xl text-orange-400" />
+                </div>
+                <h3 className="text-lg font-bold mb-2 text-foreground">Basketball Awards</h3>
+                <p className="text-sm text-foreground/70 mb-3">Multiple Medals</p>
+                <p className="text-xs text-foreground/60">Recognition for athletic excellence and teamwork</p>
+              </div>
+            </motion.div>
+
+            {/* Leadership Achievement */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ scale: 1.05, y: -5, transition: { duration: 0.2 } }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              viewport={{ once: true }}
+              className="relative bg-white/[0.08] backdrop-blur-xl border border-white/30 rounded-3xl p-6 shadow-xl group hover:shadow-2xl transition-all duration-500 overflow-hidden cursor-pointer"
+              style={{
+                backdropFilter: 'blur(30px) saturate(180%)',
+                WebkitBackdropFilter: 'blur(30px) saturate(180%)',
+                boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 20px 40px -12px rgba(0, 0, 0, 0.2)'
+              }}
+            >
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-purple-500/20 via-transparent to-pink-500/20 opacity-50"></div>
+              
+              <div className="relative z-10 text-center">
+                <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-xl flex items-center justify-center border border-white/30">
+                  <FiUsers className="text-2xl text-purple-400" />
+                </div>
+                <h3 className="text-lg font-bold mb-2 text-foreground">Team Collaboration</h3>
+                <p className="text-sm text-foreground/70 mb-3">Team Projects</p>
+                <p className="text-xs text-foreground/60">Successful collaboration in multiple group projects</p>
+              </div>
+            </motion.div>
+
+            {/* Academic Excellence */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ scale: 1.05, y: -5, transition: { duration: 0.2 } }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              viewport={{ once: true }}
+              className="relative bg-white/[0.08] backdrop-blur-xl border border-white/30 rounded-3xl p-6 shadow-xl group hover:shadow-2xl transition-all duration-500 overflow-hidden cursor-pointer"
+              style={{
+                backdropFilter: 'blur(30px) saturate(180%)',
+                WebkitBackdropFilter: 'blur(30px) saturate(180%)',
+                boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 20px 40px -12px rgba(0, 0, 0, 0.2)'
+              }}
+            >
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-teal-500/20 via-transparent to-cyan-500/20 opacity-50"></div>
+              
+              <div className="relative z-10 text-center">
+                <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-teal-500/20 to-cyan-500/20 rounded-xl flex items-center justify-center border border-white/30">
+                  <FiTrendingUp className="text-2xl text-teal-400" />
+                </div>
+                <h3 className="text-lg font-bold mb-2 text-foreground">Good GPA</h3>
+                <p className="text-sm text-foreground/70 mb-3">3.6/4.0</p>
+                <p className="text-xs text-foreground/60">Consistent academic performance excellence</p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
 
       {/* Skills Section */}
       <section id="skills" className="py-32 relative">
@@ -1147,13 +1462,13 @@ export default function Home() {
           </motion.div>
 
           {/* Centered Interest Boxes Grid */}
-          <motion.div
+            <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true, margin: "-50px" }}
             className="grid md:grid-cols-2 gap-6"
-          >
+            >
               {[
                 {
                   icon: "🏀",
@@ -1233,8 +1548,8 @@ export default function Home() {
                   </div>
                 </motion.div>
               ))}
-          </motion.div>
-        </div>
+            </motion.div>
+                  </div>
       </section>
 
       {/* Resume Section */}
@@ -1279,7 +1594,7 @@ export default function Home() {
               
               <div className="relative z-10 text-center">
                 <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-blue-500/20 to-purple-500/20 backdrop-blur-xl rounded-2xl flex items-center justify-center border border-white/30">
-                  <div className="text-3xl">📄</div>
+                  <FiFileText className="text-3xl text-blue-400" />
                 </div>
                 
                 <h3 className="text-2xl font-bold mb-4">Nguyen Le - Resume</h3>
@@ -1386,7 +1701,7 @@ export default function Home() {
                             <div className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
                               <div className="text-center text-white p-4">
                                 <div className="w-16 h-16 mx-auto mb-3 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center border border-white/30">
-                                  <div className="text-xl">✨</div>
+                                  <FiStar className="text-xl text-white/80" />
                                 </div>
                                 <p className="text-sm opacity-90">Click to explore project</p>
                               </div>
@@ -1394,14 +1709,14 @@ export default function Home() {
                           </>
                         ) : (
                           <>
-                            <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent"></div>
+                        <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent"></div>
                             <div className="relative text-center text-white/80 p-8 flex items-center justify-center h-full">
                               <div>
-                                <div className="w-20 h-20 mx-auto mb-4 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center border border-white/30">
-                                  <div className="text-2xl">✨</div>
-                                </div>
-                                <p className="text-sm opacity-90">Click to explore project</p>
-                              </div>
+                          <div className="w-20 h-20 mx-auto mb-4 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center border border-white/30">
+                                  <FiStar className="text-2xl text-white/80" />
+                          </div>
+                          <p className="text-sm opacity-90">Click to explore project</p>
+                        </div>
                             </div>
                           </>
                         )}
@@ -1416,7 +1731,7 @@ export default function Home() {
                           viewport={{ once: true }}
                         >
                           <div className="text-sm text-purple-400 font-medium mb-2">
-                            {index === 0 ? "Featured Project" : "Project"}
+                            {project.label || "Project"}
                           </div>
                           <h3 className="text-3xl lg:text-4xl font-bold mb-4 group-hover:text-blue-400 transition-colors duration-300">
                             {project.title}
@@ -1519,36 +1834,40 @@ export default function Home() {
             <div className="space-y-20">
               {[
                 { 
-                  role: "Senior Frontend Developer", 
-                  company: "Tech Company", 
-                  year: "2022-Present",
-                  description: "Leading frontend architecture and mentoring junior developers",
-                  achievements: ["Built responsive dashboards", "Improved performance by 40%", "Led team of 4 developers"],
-                  technologies: ["React", "TypeScript", "Next.js"]
+                  role: "AI Engineer Intern", 
+                  company: "Brycen", 
+                  location: "Hue, Vietnam",
+                  year: "Jun. 2025 – Present",
+                  description: "Developing AI chatbot using RAG for enterprise applications, leveraging Python and OpenAI to enhance user interaction and support.",
+                  achievements: ["Developing enterprise AI chatbot using RAG technology", "Leveraging Python and OpenAI for enhanced user interaction", "Supporting enterprise applications and user support systems"],
+                  technologies: ["Python", "OpenAI", "RAG", "AI/ML"]
                 },
                 { 
-                  role: "Full Stack Developer", 
-                  company: "Startup Inc", 
-                  year: "2020-2022",
-                  description: "Developed full-stack applications from concept to deployment",
-                  achievements: ["Launched 3 major products", "Reduced load times by 60%", "Implemented CI/CD pipeline"],
-                  technologies: ["Node.js", "Python", "React"]
+                  role: "AI/ML Researcher", 
+                  company: "Bucknell University", 
+                  location: "Hybrid",
+                  year: "Feb. 2025 – Present",
+                  description: "Developed machine learning-powered lifecycle assessment framework for hydrogen production technologies using OpenLCA and Ecoinvent 3.7.1.",
+                  achievements: ["Reduced manual data processing time by over 60% through automation", "Built and validated predictive ML models (regression & neural networks) for environmental impact estimation", "Integrated LangChain-based AI pipeline for real-time environmental impact prediction"],
+                  technologies: ["Python", "RAG", "Jupyter Notebook", "AI", "OpenLCA", "Ecoinvent"]
                 },
                 { 
-                  role: "Frontend Developer", 
-                  company: "Agency Co", 
-                  year: "2018-2020",
-                  description: "Created modern web experiences for diverse client portfolios",
-                  achievements: ["Delivered 15+ client projects", "Maintained 98% client satisfaction", "Built responsive designs"],
-                  technologies: ["JavaScript", "CSS", "HTML"]
+                  role: "AI/ML Researcher", 
+                  company: "Algoverse", 
+                  location: "Remote",
+                  year: "Jan. 2025 – May 2025",
+                  description: "Developed entropy-based dynamic hybrid retrieval algorithm integrating BM25 and MiniLM-L6-v2 for adaptive query processing.",
+                  achievements: ["Achieved +7.6% improvement in LLM-as-a-Judge scores on TriviaQA", "Got accepted to ICML VecDB 2025 for research publication", "Demonstrated statistically significant performance gains (p < 0.01) over baselines", "Designed lightweight, retriever-agnostic RAG module enabling ~11% faster retrieval"],
+                  technologies: ["Python", "RAG", "Jupyter Notebook", "AI", "Hugging Face", "BM25", "FAISS"]
                 },
                 { 
-                  role: "Junior Developer", 
-                  company: "Digital Solutions", 
-                  year: "2017-2018",
-                  description: "Started my development journey building small websites and learning core technologies",
-                  achievements: ["Completed 20+ small projects", "Learned responsive design principles", "Mastered version control"],
-                  technologies: ["HTML", "CSS", "JavaScript"]
+                  role: "Software Engineering Fellow", 
+                  company: "Headstarter AI", 
+                  location: "Remote",
+                  year: "Jul. 2024 – Sep. 2024",
+                  description: "Built and deployed 4 AI projects in 5 weeks using modern web technologies, following agile methodologies with weekly sprints.",
+                  achievements: ["Built and deployed 4 AI projects in 5 weeks using agile methodologies", "Incorporated CI/CD practices for iterative deployment", "Developed and launched apps using Next.js, Material-UI, Stripe API, and Firebase", "Improved user interface design and payment processing efficiency"],
+                  technologies: ["JavaScript", "React.js", "Firebase", "Next.js", "Material-UI", "Stripe API"]
                 }
               ].map((job, index) => {
                 const isLeft = index % 2 === 0;
@@ -1588,6 +1907,7 @@ export default function Home() {
                               {job.role}
                             </h3>
                             <p className="text-lg text-purple-400 font-medium">{job.company}</p>
+                            {job.location && <p className="text-sm text-foreground/60">{job.location}</p>}
                           </div>
                           {/* Description */}
                           <p className="text-foreground/70 mb-4 leading-relaxed">
