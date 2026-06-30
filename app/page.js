@@ -1287,7 +1287,7 @@ export default function Home() {
                     </div>
                   </div>
                   <p className="text-foreground/70 leading-relaxed">
-                  A system-level performance monitoring and diagnosis tool that reads hardware and software metrics directly from the operating system, stores them over time, detects anomalies with rules and statistics, and uses an LLM agent only as the final explanation layer — not as the source of truth. When your machine lags, you ask a plain-English question like "Why does my PC slow down when opening VS Code?" The app correlates your question with collected telemetry, ranks root causes by evidence, and returns an actionable diagnosis.
+                  A system-level performance monitoring and diagnosis tool that reads hardware and software metrics directly from the operating system, stores them over time, detects anomalies with rules and statistics, and uses an LLM agent only as the final explanation layer — not as the source of truth. When your machine lags, you ask a plain-English question like &quot;Why does my PC slow down when opening VS Code?&quot; The app correlates your question with collected telemetry, ranks root causes by evidence, and returns an actionable diagnosis.
                   </p>
                   <div className="flex flex-wrap gap-2">
                     <span className="px-3 py-1 bg-purple-500/20 border border-purple-500/30 rounded-full text-sm text-purple-400">Rust</span>
@@ -1519,7 +1519,7 @@ export default function Home() {
                 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <motion.a
-                    href="/Radley's Resume.docx.pdf"
+                    href="/Nguyen's SWE Resume.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-500/80 to-purple-500/80 backdrop-blur-xl border border-white/30 rounded-xl text-white font-medium transition-all duration-300 hover:scale-105 shadow-2xl hover:shadow-3xl"
