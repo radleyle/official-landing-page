@@ -328,7 +328,7 @@ export default function Home() {
                 transition={{ duration: 0.8, delay: 0.5 }}
               >
                 <div className="text-center lg:text-left">
-                  <div className="text-2xl md:text-3xl font-bold text-blue-400">3.6</div>
+                  <div className="text-2xl md:text-3xl font-bold text-blue-400">3.5</div>
                   <div className="text-xs md:text-sm text-gray-400">GPA</div>
                 </div>
                 <div className="text-center lg:text-left">
