@@ -758,7 +758,7 @@ export default function Home() {
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-foreground/70">GPA:</span>
-                    <span className="font-medium">3.6/4.0</span>
+                    <span className="font-medium">3.5/4.0</span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-foreground/70">Focus Areas:</span>
