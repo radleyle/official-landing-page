@@ -1737,7 +1737,7 @@ export default function Home() {
                   role: "Software Engineering Intern", 
                   company: "Astrio", 
                   location: "Remote",
-                  year: "Jun. 2026 – Present",
+                  year: "May. 2026 – Present",
                   description: "Working on a project with Astrio to build a coding agent that makes you write specs before code and uses formal verification to prove your implementation actually matches those specs, instead of shipping changes on vibe coding.",
                   achievements: ["Researched on code migration and formal verification with Dafny/Lean language", "Improved code quality and maintainability through static analysis and automated refactoring", "Enhanced software development efficiency through automated code migration and verification"],
                   technologies: ["Formal Verification", "Dafny", "LLM", "Code Migration"]
