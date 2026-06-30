@@ -33,7 +33,6 @@ import {
   FiFileText,
   FiAward,
   FiUsers,
-  FiTrendingUp,
   FiBook,
   FiTarget,
   FiStar
@@ -388,81 +387,33 @@ export default function Home() {
             >
               <div className="relative">
                 {/* Glowing background */}
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/30 via-purple-500/40 to-pink-500/30 rounded-2xl blur-3xl transform scale-110 animate-pulse"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/30 via-purple-500/40 to-pink-500/30 rounded-2xl blur-3xl transform scale-110"></div>
                 
                 {/* Photo container */}
                 <div className="relative w-80 h-80 md:w-96 md:h-96">
                   {/* Profile Photo */}
-                  <motion.div 
-                    className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl backdrop-blur-xl group border border-white/20"
+                  <div 
+                    className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl border border-white/20"
                     style={{
-                      backdropFilter: 'blur(20px) saturate(180%)',
-                      WebkitBackdropFilter: 'blur(20px) saturate(180%)',
-                      transform: 'perspective(1000px) rotateY(-15deg) rotateX(5deg)',
                       boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.1)'
-                    }}
-                    animate={{
-                      y: [0, -35, 0, 25, 0, -40, 0, 30, 0],
-                      x: [0, 25, 0, -20, 0, 18, 0, -15, 0],
-                      rotateY: [-15, -5, -15, -8, -15, -2, -15, -10, -15],
-                      rotateX: [5, 15, 5, 10, 5, 18, 5, 12, 5]
-                    }}
-                    transition={{
-                      duration: 20,
-                      repeat: Infinity,
-                      ease: "easeInOut"
-                    }}
-                    whileHover={{
-                      scale: 1.08,
-                      rotateY: -5,
-                      rotateX: 15,
-                      y: -5,
-                      transition: { duration: 0.4 }
                     }}
                   >
         <Image
-                      src="/images/main2.png"
+                      src="/images/main.png"
                       alt="Radley - Profile Photo"
                       fill
-                      className="object-cover hover:scale-110 transition-transform duration-700"
+                      className="object-cover"
           priority
         />
                     {/* Glass overlay for depth */}
                     <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-transparent to-black/20 rounded-2xl"></div>
                     {/* Liquid glass reflection */}
                     <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-transparent to-transparent opacity-60 rounded-2xl"></div>
-                  </motion.div>
+                  </div>
                   
                   {/* Decorative elements */}
-                  <motion.div 
-                    className="absolute -top-4 -right-4 w-20 h-20 bg-blue-500/30 rounded-full blur-xl"
-                    animate={{
-                      y: [0, -30, 0, 35, 0, -40, 0, 25, 0],
-                      x: [0, 20, 0, -25, 0, 15, 0, -20, 0],
-                      opacity: [0.3, 0.8, 0.3, 0.9, 0.3, 0.7, 0.3, 0.8, 0.3],
-                      scale: [1, 1.2, 1, 1.3, 1, 1.1, 1, 1.25, 1]
-                    }}
-                    transition={{
-                      duration: 16,
-                      repeat: Infinity,
-                      ease: "easeInOut"
-                    }}
-                  ></motion.div>
-                  <motion.div 
-                    className="absolute -bottom-6 -left-6 w-16 h-16 bg-purple-500/30 rounded-full blur-lg"
-                    animate={{
-                      y: [0, 35, 0, -30, 0, 45, 0, -25, 0],
-                      x: [0, -20, 0, 30, 0, -15, 0, 25, 0],
-                      opacity: [0.3, 0.7, 0.3, 0.8, 0.3, 0.9, 0.3, 0.6, 0.3],
-                      scale: [1, 1.25, 1, 1.35, 1, 1.15, 1, 1.3, 1]
-                    }}
-                    transition={{
-                      duration: 22,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                      delay: 4
-                    }}
-                  ></motion.div>
+                  <div className="absolute -top-4 -right-4 w-20 h-20 bg-blue-500/30 rounded-full blur-xl"></div>
+                  <div className="absolute -bottom-6 -left-6 w-16 h-16 bg-purple-500/30 rounded-full blur-lg"></div>
                 </div>
               </div>
             </motion.div>
@@ -471,7 +422,8 @@ export default function Home() {
       </section>
 
 
-
+      {false && (
+      <>
       {/* About Section */}
       <section id="about" className="py-32 relative">
         <div className="max-w-6xl mx-auto">
@@ -745,6 +697,8 @@ export default function Home() {
 
         </div>
       </section>
+      </>
+      )}
 
       {/* Education Section */}
       <section id="education" className="py-32 relative">
@@ -889,7 +843,7 @@ export default function Home() {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8">
             {/* Academic Achievement */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -968,38 +922,12 @@ export default function Home() {
               </div>
             </motion.div>
 
-            {/* Basketball Achievement */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              whileHover={{ scale: 1.05, y: -5, transition: { duration: 0.2 } }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              viewport={{ once: true }}
-              className="relative bg-white/[0.08] backdrop-blur-xl border border-white/30 rounded-3xl p-6 shadow-xl group hover:shadow-2xl transition-all duration-500 overflow-hidden cursor-pointer"
-              style={{
-                backdropFilter: 'blur(30px) saturate(180%)',
-                WebkitBackdropFilter: 'blur(30px) saturate(180%)',
-                boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 20px 40px -12px rgba(0, 0, 0, 0.2)'
-              }}
-            >
-              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-orange-500/20 via-transparent to-red-500/20 opacity-50"></div>
-              
-              <div className="relative z-10 text-center">
-                <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-orange-500/20 to-red-500/20 rounded-xl flex items-center justify-center border border-white/30">
-                  <FiTarget className="text-2xl text-orange-400" />
-                </div>
-                <h3 className="text-lg font-bold mb-2 text-foreground">Basketball Awards</h3>
-                <p className="text-sm text-foreground/70 mb-3">Multiple Medals</p>
-                <p className="text-xs text-foreground/60">Recognition for athletic excellence and teamwork</p>
-              </div>
-            </motion.div>
-
             {/* Leadership Achievement */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               whileHover={{ scale: 1.05, y: -5, transition: { duration: 0.2 } }}
-              transition={{ duration: 0.6, delay: 0.5 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
               viewport={{ once: true }}
               className="relative bg-white/[0.08] backdrop-blur-xl border border-white/30 rounded-3xl p-6 shadow-xl group hover:shadow-2xl transition-all duration-500 overflow-hidden cursor-pointer"
               style={{
@@ -1017,32 +945,6 @@ export default function Home() {
                 <h3 className="text-lg font-bold mb-2 text-foreground">Team Collaboration</h3>
                 <p className="text-sm text-foreground/70 mb-3">Team Projects</p>
                 <p className="text-xs text-foreground/60">Successful collaboration in multiple group projects</p>
-              </div>
-            </motion.div>
-
-            {/* Academic Excellence */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              whileHover={{ scale: 1.05, y: -5, transition: { duration: 0.2 } }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              viewport={{ once: true }}
-              className="relative bg-white/[0.08] backdrop-blur-xl border border-white/30 rounded-3xl p-6 shadow-xl group hover:shadow-2xl transition-all duration-500 overflow-hidden cursor-pointer"
-              style={{
-                backdropFilter: 'blur(30px) saturate(180%)',
-                WebkitBackdropFilter: 'blur(30px) saturate(180%)',
-                boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 20px 40px -12px rgba(0, 0, 0, 0.2)'
-              }}
-            >
-              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-teal-500/20 via-transparent to-cyan-500/20 opacity-50"></div>
-              
-              <div className="relative z-10 text-center">
-                <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-teal-500/20 to-cyan-500/20 rounded-xl flex items-center justify-center border border-white/30">
-                  <FiTrendingUp className="text-2xl text-teal-400" />
-                </div>
-                <h3 className="text-lg font-bold mb-2 text-foreground">Good GPA</h3>
-                <p className="text-sm text-foreground/70 mb-3">3.6/4.0</p>
-                <p className="text-xs text-foreground/60">Consistent academic performance excellence</p>
               </div>
             </motion.div>
           </div>
@@ -1356,22 +1258,20 @@ export default function Home() {
                       <div className="text-2xl">🚀</div>
                     </div> */}
                     <div>
-                      <h3 className="text-xl font-bold text-green-400">AI-Powered LCA Framework with LLM</h3>
-                      <p className="text-sm text-foreground/60">Accepted Research Project</p>
+                      <h3 className="text-xl font-bold text-green-400">Code Migration with Astrio</h3>
+                      <p className="text-sm text-foreground/60">Summer Internship Project</p>
                     </div>
                   </div>
                   <p className="text-foreground/70 leading-relaxed">
-                    Building RAG-integrated pipeline for data extraction from literature papers to predict the environmental impact of biomass gasification techonlogies using LLM.
+                    Working on a project with Astrio to build a coding agent that makes you write specs before code and uses formal verification to prove your implementation actually matches those specs, instead of shipping changes on vibe coding.
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {/* <span className="px-3 py-1 bg-green-500/20 border border-green-500/30 rounded-full text-sm text-green-400">Next.js</span> */}
                     <span className="px-3 py-1 bg-green-500/20 border border-green-500/30 rounded-full text-sm text-green-400">AI/ML</span>
-                    <span className="px-3 py-1 bg-green-500/20 border border-green-500/30 rounded-full text-sm text-green-400">Python</span>
+                    <span className="px-3 py-1 bg-green-500/20 border border-green-500/30 rounded-full text-sm text-green-400">Formal Verification</span>
                     <span className="px-3 py-1 bg-green-500/20 border border-green-500/30 rounded-full text-sm text-green-400">LLM</span>
-                    <span className="px-3 py-1 bg-green-500/20 border border-green-500/30 rounded-full text-sm text-green-400">RAG</span>
-                    <span className="px-3 py-1 bg-green-500/20 border border-green-500/30 rounded-full text-sm text-green-400">Data Extraction</span>
-                    <span className="px-3 py-1 bg-green-500/20 border border-green-500/30 rounded-full text-sm text-green-400">Data Analysis</span>
-                    <span className="px-3 py-1 bg-green-500/20 border border-green-500/30 rounded-full text-sm text-green-400">Data Visualization</span>
+                    <span className="px-3 py-1 bg-green-500/20 border border-green-500/30 rounded-full text-sm text-green-400">Code Migration</span>
+                    <span className="px-3 py-1 bg-green-500/20 border border-green-500/30 rounded-full text-sm text-green-400">Dafny</span>
                   </div>
                 </div>
 
@@ -1382,20 +1282,20 @@ export default function Home() {
                       <div className="text-2xl">📚</div>
                     </div> */}
                     <div>
-                      <h3 className="text-xl font-bold text-purple-400">AI Chatbot Applications</h3>
-                      <p className="text-sm text-foreground/60">Collaborating Project</p>
+                      <h3 className="text-xl font-bold text-purple-400">PC Performance Copilot</h3>
+                      <p className="text-sm text-foreground/60">Personal Project</p>
                     </div>
                   </div>
                   <p className="text-foreground/70 leading-relaxed">
-                    Collaborating another Bucknell student to build a web application for AiDvocate AI, a company that leverages the power of ethical AI to make positive impact on patient care, employment rights, and human rights.
+                  A system-level performance monitoring and diagnosis tool that reads hardware and software metrics directly from the operating system, stores them over time, detects anomalies with rules and statistics, and uses an LLM agent only as the final explanation layer — not as the source of truth. When your machine lags, you ask a plain-English question like "Why does my PC slow down when opening VS Code?" The app correlates your question with collected telemetry, ranks root causes by evidence, and returns an actionable diagnosis.
                   </p>
                   <div className="flex flex-wrap gap-2">
+                    <span className="px-3 py-1 bg-purple-500/20 border border-purple-500/30 rounded-full text-sm text-purple-400">Rust</span>
+                    <span className="px-3 py-1 bg-purple-500/20 border border-purple-500/30 rounded-full text-sm text-purple-400">LangGraph</span>
+                    <span className="px-3 py-1 bg-purple-500/20 border border-purple-500/30 rounded-full text-sm text-purple-400">FastAPI</span>
                     <span className="px-3 py-1 bg-purple-500/20 border border-purple-500/30 rounded-full text-sm text-purple-400">React</span>
-                    <span className="px-3 py-1 bg-purple-500/20 border border-purple-500/30 rounded-full text-sm text-purple-400">JavaScript</span>
-                    <span className="px-3 py-1 bg-purple-500/20 border border-purple-500/30 rounded-full text-sm text-purple-400">Next JS</span>
-                    <span className="px-3 py-1 bg-purple-500/20 border border-purple-500/30 rounded-full text-sm text-purple-400">Tailwind</span>
                     <span className="px-3 py-1 bg-purple-500/20 border border-purple-500/30 rounded-full text-sm text-purple-400">Python</span>
-                    <span className="px-3 py-1 bg-purple-500/20 border border-purple-500/30 rounded-full text-sm text-purple-400">AI/ML</span>
+                    <span className="px-3 py-1 bg-purple-500/20 border border-purple-500/30 rounded-full text-sm text-purple-400">AI agent</span>
                   </div>
                 </div>
               </div>
@@ -1403,14 +1303,14 @@ export default function Home() {
               {/* Progress Bar 1*/}
               <div className="mt-8">
                 <div className="flex justify-between text-sm text-foreground/60 mb-2">
-                  <span>AI-Powered LCA Framework Progress</span>
-                  <span>75%</span>
+                  <span>Code Migration Progress</span>
+                  <span>35%</span>
                 </div>
                 <div className="w-full bg-white/10 rounded-full h-2">
                   <motion.div
                     className="bg-gradient-to-r from-green-500 to-teal-500 h-2 rounded-full"
                     initial={{ width: 0 }}
-                    whileInView={{ width: "75%" }}
+                    whileInView={{ width: "35%" }}
                     transition={{ duration: 2, delay: 0.5 }}
                     viewport={{ once: true }}
                   />
@@ -1420,14 +1320,14 @@ export default function Home() {
               {/* Progress Bar 2 - AI Chatbot Applications */}
               <div className="mt-8">
                 <div className="flex justify-between text-sm text-foreground/60 mb-2">
-                  <span>AI Chatbot Progress</span>
-                  <span>25%</span>
+                  <span>PC Performance Copilot Progress</span>
+                  <span>20%</span>
                 </div>
                 <div className="w-full bg-white/10 rounded-full h-2">
                   <motion.div
                     className="bg-gradient-to-r from-purple-500 to-pink-500 h-2 rounded-full"
                     initial={{ width: 0 }}
-                    whileInView={{ width: "25%" }}
+                    whileInView={{ width: "20%" }}
                     transition={{ duration: 2, delay: 0.5 }}
                     viewport={{ once: true }}
                   />
@@ -1834,26 +1734,35 @@ export default function Home() {
             <div className="space-y-20">
               {[
                 { 
-                  role: "AI Engineer Intern", 
-                  company: "Brycen", 
-                  location: "Hue, Vietnam",
-                  year: "Jun. 2025 – Present",
-                  description: "Developing AI chatbot using RAG for enterprise applications, leveraging Python and OpenAI to enhance user interaction and support.",
-                  achievements: ["Developing enterprise AI chatbot using RAG technology", "Leveraging Python and OpenAI for enhanced user interaction", "Supporting enterprise applications and user support systems"],
-                  technologies: ["Python", "OpenAI", "RAG", "AI/ML"]
+                  role: "Software Engineering Intern", 
+                  company: "Astrio", 
+                  location: "Remote",
+                  year: "Jun. 2026 – Present",
+                  description: "Working on a project with Astrio to build a coding agent that makes you write specs before code and uses formal verification to prove your implementation actually matches those specs, instead of shipping changes on vibe coding.",
+                  achievements: ["Researched on code migration and formal verification with Dafny/Lean language", "Improved code quality and maintainability through static analysis and automated refactoring", "Enhanced software development efficiency through automated code migration and verification"],
+                  technologies: ["Formal Verification", "Dafny", "LLM", "Code Migration"]
                 },
                 { 
                   role: "AI/ML Researcher", 
                   company: "Bucknell University", 
                   location: "Hybrid",
-                  year: "Feb. 2025 – Present",
+                  year: "Feb. 2025 – Nov. 2025",
                   description: "Developed machine learning-powered lifecycle assessment framework for hydrogen production technologies using OpenLCA and Ecoinvent 3.7.1.",
                   achievements: ["Reduced manual data processing time by over 60% through automation", "Built and validated predictive ML models (regression & neural networks) for environmental impact estimation", "Integrated LangChain-based AI pipeline for real-time environmental impact prediction"],
                   technologies: ["Python", "RAG", "Jupyter Notebook", "AI", "OpenLCA", "Ecoinvent"]
                 },
                 { 
-                  role: "AI/ML Researcher", 
-                  company: "Algoverse", 
+                  role: "Software Engineering Intern", 
+                  company: "Brycen", 
+                  location: "Hue, Vietnam",
+                  year: "Jun. 2025 – Aug. 2025",
+                  description: "Developing AI chatbot using RAG for enterprise applications, leveraging Python and OpenAI to enhance user interaction and support.",
+                  achievements: ["Developing enterprise AI chatbot using RAG technology", "Leveraging Python and OpenAI for enhanced user interaction", "Supporting enterprise applications and user support systems"],
+                  technologies: ["Python", "OpenAI", "RAG", "AI/ML"]
+                },
+                { 
+                  role: "AI/ML Research Author", 
+                  company: "ICML VecDB 2025", 
                   location: "Remote",
                   year: "Jan. 2025 – May 2025",
                   description: "Developed entropy-based dynamic hybrid retrieval algorithm integrating BM25 and MiniLM-L6-v2 for adaptive query processing.",
