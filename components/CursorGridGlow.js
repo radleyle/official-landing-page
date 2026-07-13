@@ -3,26 +3,26 @@
 import { useEffect, useRef } from "react";
 
 const SPACING = 32;
-const RADIUS = 145;
+const RADIUS = 100;
 const MAX_GLOW = 1;
 const DECAY = 0.965;
 
 function drawDot(ctx, x, y, alpha) {
   if (alpha < 0.012) return;
 
-  ctx.fillStyle = `rgba(52, 211, 153, ${alpha * 0.4})`;
+  ctx.fillStyle = `rgba(52, 211, 153, ${alpha * 0.35})`;
   ctx.beginPath();
-  ctx.arc(x, y, 6.5, 0, Math.PI * 2);
+  ctx.arc(x, y, 3.5, 0, Math.PI * 2);
   ctx.fill();
 
   ctx.fillStyle = `rgba(52, 211, 153, ${alpha * 1})`;
   ctx.beginPath();
-  ctx.arc(x, y, 2.5, 0, Math.PI * 2);
+  ctx.arc(x, y, 1.8, 0, Math.PI * 2);
   ctx.fill();
 
   ctx.fillStyle = `rgba(167, 243, 208, ${alpha * 0.9})`;
   ctx.beginPath();
-  ctx.arc(x, y, 1.4, 0, Math.PI * 2);
+  ctx.arc(x, y, 1.1, 0, Math.PI * 2);
   ctx.fill();
 }
 

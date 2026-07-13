@@ -34,8 +34,8 @@ export default function Home() {
       <HighlightsSection />
       <FeaturedProject />
       <ProjectsSection />
-      <ExperienceSection />
       <PublicationsSection />
+      <ExperienceSection />
       <GitHubActivity />
       <SkillsSection />
       <ContactSection />
