@@ -1,157 +1,86 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #09090b;
+  --foreground: #fafafa;
+  --muted: #a1a1aa;
+  --accent: #34d399;
+  --border: rgba(255, 255, 255, 0.08);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-border: var(--border);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-.dark {
-  --background: #0a0a0a;
-  --foreground: #ededed;
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-  /* Performance optimizations for 120Hz */
-  transform: translateZ(0);
-  backface-visibility: hidden;
-  will-change: scroll-position;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
 }
 
-/* Beautiful Mac cursor styles */
-a, button, input, textarea, select, [role="button"], .interactive {
-  cursor: pointer;
+.bg-texture {
+  position: relative;
+  min-height: 100vh;
+  background-color: var(--background);
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.13) 1px,
+    transparent 1px
+  );
+  background-size: 32px 32px;
+  background-attachment: fixed;
 }
 
-/* Smooth cursor transitions */
-* {
-  cursor: inherit;
-  transition: cursor 0.1s ease;
+.bg-texture::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.055;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+  background-size: 128px 128px;
 }
 
-/* 3D Transform utilities */
-.perspective-1000 {
-  perspective: 1000px;
-}
-
-.preserve-3d {
-  transform-style: preserve-3d;
-}
-
-.backface-hidden {
-  backface-visibility: hidden;
-}
-
-.rotate-y-180 {
-  transform: rotateY(180deg);
-}
-
-
-
-/* Selection styling */
 ::selection {
-  background: rgba(59, 130, 246, 0.3);
+  background: rgba(52, 211, 153, 0.25);
   color: white;
 }
 
-/* Custom animations */
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+.section-container {
+  @apply max-w-5xl mx-auto px-6;
 }
 
-@keyframes borderShine {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+.section-label {
+  @apply text-xs font-mono uppercase tracking-[0.2em] text-accent mb-3;
 }
 
-@keyframes pulse-glow {
-  0%, 100% { opacity: 0.5; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.05); }
+.section-title {
+  @apply text-3xl md:text-4xl font-semibold tracking-tight text-foreground;
 }
 
-@keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
+.card {
+  @apply rounded-2xl border border-border bg-white/[0.02] transition-colors hover:border-white/15;
 }
 
-.animate-border-shine {
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-  background-size: 200% 100%;
-  animation: borderShine 2s infinite;
+.tag {
+  @apply px-2.5 py-1 text-xs font-mono rounded-md border border-border text-muted;
 }
 
-.animate-pulse-glow {
-  animation: pulse-glow 2s ease-in-out infinite;
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-foreground text-background text-sm font-medium transition-opacity hover:opacity-90;
 }
 
-.shimmer-effect::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-  animation: shimmer 2s infinite;
-}
-
-.animate-float {
-  animation: float 3s ease-in-out infinite;
-}
-
-.glass {
-  backdrop-filter: blur(20px) saturate(150%);
-  -webkit-backdrop-filter: blur(20px) saturate(150%);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-}
-
-/* Enhanced glass effect for light mode */
-.light .glass {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
-}
-
-/* Performance optimizations */
-* {
-  box-sizing: border-box;
-}
-
-.interactive, button, a {
-  touch-action: manipulation;
-}
-
-/* Optimize for smooth scrolling */
-html {
-  scroll-behavior: smooth;
-  touch-action: manipulation;
-}
-
-body {
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-
-.optimize-scroll {
-  will-change: scroll-position;
-  transform: translateZ(0);
-}
-
-/* High DPI optimizations */
-@media (min-resolution: 120dpi) {
-  * {
-    transform: translate3d(0,0,0);
-  }
+.btn-secondary {
+  @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg border border-border text-sm font-medium text-foreground transition-colors hover:border-white/20 hover:bg-white/[0.03];
 }
