@@ -5,7 +5,7 @@ import { FiGithub, FiLinkedin, FiMail } from "react-icons/fi";
 
 const socialLinks = [
   { href: "https://github.com/radleyle", icon: FiGithub, label: "GitHub" },
-  { href: "https://linkedin.com/in/radleyle-le", icon: FiLinkedin, label: "LinkedIn" },
+  { href: "https://linkedin.com/in/radley-le", icon: FiLinkedin, label: "LinkedIn" },
   { href: "mailto:radleyle1507@gmail.com", icon: FiMail, label: "Email" },
 ];
 
