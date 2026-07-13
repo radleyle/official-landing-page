@@ -143,11 +143,17 @@ export default function ProjectDetail({ project }) {
           >
             {activeTab === "overview" && (
               <div className="grid md:grid-cols-2 gap-10">
-                <div>
-                  <h3 className="text-xl font-medium mb-4">Overview</h3>
-                  <p className="text-muted leading-relaxed">
-                    {project.overview || project.description}
-                  </p>
+                <div className="space-y-6">
+                  <div>
+                    <h3 className="text-xl font-medium mb-4">Overview</h3>
+                    {(project.overview || project.description)
+                      .split("\n\n")
+                      .map((paragraph, index) => (
+                        <p key={index} className="text-muted leading-relaxed mb-4 last:mb-0">
+                          {paragraph}
+                        </p>
+                      ))}
+                  </div>
                 </div>
                 <div className="card p-6 space-y-3 text-sm">
                   <div className="flex justify-between">
@@ -203,12 +209,26 @@ export default function ProjectDetail({ project }) {
             )}
 
             {activeTab === "technologies" && (
-              <div className="flex flex-wrap gap-2">
-                {project.technologies.map((tech) => (
-                  <span key={tech} className="tag">
-                    {tech}
-                  </span>
-                ))}
+              <div className="space-y-4">
+                {project.techStack ? (
+                  project.techStack.map((item) => (
+                    <div key={item.layer} className="card p-5">
+                      <div className="flex flex-wrap items-center gap-2 mb-2">
+                        <span className="tag">{item.layer}</span>
+                        <span className="text-sm font-medium">{item.technology}</span>
+                      </div>
+                      <p className="text-muted text-sm leading-relaxed">{item.role}</p>
+                    </div>
+                  ))
+                ) : (
+                  <div className="flex flex-wrap gap-2">
+                    {project.technologies.map((tech) => (
+                      <span key={tech} className="tag">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                )}
               </div>
             )}
           </motion.div>

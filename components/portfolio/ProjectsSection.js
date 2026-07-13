@@ -26,6 +26,9 @@ export default function ProjectsSection() {
               <div className="grid md:grid-cols-[1fr_200px] gap-8 items-start">
                 <div className="space-y-4">
                   <div className="flex flex-wrap items-center gap-3">
+                    {project.label && (
+                      <span className="tag text-accent border-accent/30">{project.label}</span>
+                    )}
                     <h3 className="text-xl font-medium group-hover:text-accent transition-colors">
                       {project.title}
                     </h3>
