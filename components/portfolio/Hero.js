@@ -32,8 +32,8 @@ export default function Hero({ onNavigate }) {
               </p>
               <p className="text-lg text-muted max-w-xl leading-relaxed">
                 Computer Science student at Bucknell University passionate about AI research
-                and full-stack engineering. I&apos;ve published at ICML VecDB, built ML research
-                tools for hydrogen production, and shipped production apps across the stack.
+                and full-stack engineering. I&apos;ve shipped production apps across the stack, conducted ML research
+                on biomass gassification, and published at ICML VecDB Workshop.
               </p>
             </div>
 
