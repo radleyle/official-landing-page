@@ -7,6 +7,7 @@ import HighlightsSection from "../components/portfolio/HighlightsSection";
 import FeaturedProject from "../components/portfolio/FeaturedProject";
 import ProjectsSection from "../components/portfolio/ProjectsSection";
 import ExperienceSection from "../components/portfolio/ExperienceSection";
+import EducationSection from "../components/portfolio/EducationSection";
 import PublicationsSection from "../components/portfolio/PublicationsSection";
 import GitHubActivity from "../components/portfolio/GitHubActivity";
 import SkillsSection from "../components/portfolio/SkillsSection";
@@ -36,6 +37,7 @@ export default function Home() {
       <ProjectsSection />
       <PublicationsSection />
       <ExperienceSection />
+      <EducationSection />
       <GitHubActivity />
       <SkillsSection />
       <ContactSection />

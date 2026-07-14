@@ -21,6 +21,12 @@ import {
   SiNumpy,
   SiHuggingface,
   SiAnaconda,
+  SiRust,
+  SiFirebase,
+  SiStripe,
+  SiLangchain,
+  SiDocker,
+  SiAmazon,
 } from "react-icons/si";
 
 const skills = [
@@ -37,23 +43,10 @@ export default function SkillsKeyboard() {
     <>
 {/* Skills Keyboard Layout */}
 <div className="relative max-w-6xl mx-auto mb-16">
-  {/* Keyboard container with fading edges */}
   <div className="relative">
-    {/* Left fade gradient */}
-    <div className="absolute left-0 top-0 bottom-0 w-64 bg-gradient-to-r from-background via-background/50 to-transparent z-10 pointer-events-none"></div>
-    
-    {/* Right fade gradient */}
-    <div className="absolute right-0 top-0 bottom-0 w-64 bg-gradient-to-l from-background via-background/50 to-transparent z-10 pointer-events-none"></div>
-    
-    {/* Top fade gradient */}
-    <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-background via-background/90 to-transparent z-10 pointer-events-none"></div>
-    
-    {/* Bottom fade gradient */}
-    <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background via-background/90 to-transparent z-10 pointer-events-none"></div>
-    
     {/* Interactive Skills Keyboard */}
-    <div className="relative max-w-7xl mx-auto">
-      {/* Top Row - Function Keys */}
+    <div className="relative max-w-7xl mx-auto keyboard-fade-mask">
+      {/* Top Row - Function Keys (decorative edge) */}
       <div className="grid grid-cols-9 gap-3 md:gap-4 mb-3 md:mb-4">
         {Array.from({ length: 9 }, (_, i) => (
           <motion.div
@@ -246,24 +239,67 @@ export default function SkillsKeyboard() {
         })}
       </div>
       
-      {/* Row 4 - Bottom Row */}
-      <div className="grid grid-cols-9 gap-3 md:gap-4" style={{ marginLeft: '2rem' }}>
-        {['Z', 'X', 'C', 'V', 'B', 'N', 'M', '⌫', '↵'].map((letter, i) => (
-          <motion.div
-            key={`bottom-key-${i}`}
-            className={`aspect-square bg-white/[0.08] border border-white/30 rounded-lg opacity-60 hover:opacity-80 transition-all duration-300 shadow-lg hover:shadow-xl cursor-pointer group ${
-              letter === '⌫' || letter === '↵' ? 'col-span-1.5' : ''
-            }`}
-            whileHover={{ y: -3 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <div className="flex items-center justify-center h-full">
-              <span className="text-xs font-medium text-white/70 group-hover:text-white transition-colors">
-                {letter}
-              </span>
-            </div>
-          </motion.div>
-        ))}
+      {/* Row 4 - ZXCVBNM Row */}
+      <div className="grid grid-cols-9 gap-3 md:gap-4 mb-3 md:mb-4" style={{ marginLeft: '2rem' }}>
+        {[
+          { letter: 'Z', skill: null },
+          { letter: 'X', skill: { icon: SiRust, color: '#DEA584' } },
+          { letter: 'C', skill: { icon: SiFirebase, color: '#FFCA28' } },
+          { letter: 'V', skill: { icon: SiStripe, color: '#635BFF' } },
+          { letter: 'B', skill: { icon: SiLangchain, color: '#FFFFFF' } },
+          { letter: 'N', skill: { icon: SiDocker, color: '#2496ED' } },
+          { letter: 'M', skill: { icon: SiAmazon, color: '#FF9900' } },
+          { letter: '⌫', skill: null, edge: true },
+          { letter: '↵', skill: null, edge: true },
+        ].map((item, i) => {
+          const isSkillKey = item.skill !== null;
+
+          return (
+            <motion.div
+              key={`bottom-key-${i}`}
+              className={`aspect-square bg-white/[0.08] border border-white/30 rounded-lg transition-all duration-300 shadow-lg cursor-pointer group relative overflow-hidden ${
+                isSkillKey
+                  ? 'hover:scale-110'
+                  : 'opacity-60 hover:opacity-80 hover:shadow-xl'
+              }`}
+              style={
+                isSkillKey
+                  ? { boxShadow: `0 0 0 0 ${item.skill.color}00`, transition: 'box-shadow 0.3s' }
+                  : {}
+              }
+              whileHover={
+                isSkillKey
+                  ? { y: -5, boxShadow: `0 0 32px 8px ${item.skill.color}` }
+                  : { y: -3 }
+              }
+              whileTap={{ scale: 0.95 }}
+            >
+              {isSkillKey ? (
+                <div className="flex items-center justify-center h-full">
+                  {(() => {
+                    const IconComponent = item.skill.icon;
+                    return <IconComponent size={45} style={{ color: item.skill.color }} />;
+                  })()}
+                </div>
+              ) : (
+                <div className="flex items-center justify-center h-full">
+                  <span className="text-xs font-medium text-white/70 group-hover:text-white transition-colors">
+                    {item.letter}
+                  </span>
+                </div>
+              )}
+            </motion.div>
+          );
+        })}
+      </div>
+
+      {/* Row 5 - Space Bar (decorative edge) */}
+      <div className="flex justify-center mt-1 md:mt-2" style={{ marginLeft: '6rem', marginRight: '2rem' }}>
+        <motion.div
+          className="w-full h-11 md:h-12 bg-white/[0.08] border border-white/30 rounded-lg opacity-60 hover:opacity-80 transition-all duration-300 shadow-lg hover:shadow-xl cursor-pointer"
+          whileHover={{ y: -2 }}
+          whileTap={{ scale: 0.99 }}
+        />
       </div>
     </div>
   </div>

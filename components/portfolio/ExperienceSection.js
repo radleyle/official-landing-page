@@ -7,8 +7,8 @@ export default function ExperienceSection() {
     <section id="experience" className="py-24 border-t border-border">
       <div className="section-container">
         <div className="mb-12">
-          <p className="section-label">Background</p>
-          <h2 className="section-title">Experience & Education</h2>
+          <p className="section-label">Where I&apos;ve worked</p>
+          <h2 className="section-title">Experience</h2>
         </div>
 
         <div className="space-y-0">
