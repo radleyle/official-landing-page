@@ -12,9 +12,9 @@ const links = [
   },
   {
     label: "LinkedIn",
-    href: "https://linkedin.com/in/radleyle-le",
+    href: "https://linkedin.com/in/radley-le",
     icon: FiLinkedin,
-    value: "radleyle-le",
+    value: "radley-le",
   },
   {
     label: "GitHub",
