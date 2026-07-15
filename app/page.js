@@ -33,10 +33,10 @@ export default function Home() {
       <Navbar onNavigate={scrollTo} />
       <Hero onNavigate={scrollTo} />
       <HighlightsSection />
+      <ExperienceSection />
       <FeaturedProject />
       <ProjectsSection />
       <PublicationsSection />
-      <ExperienceSection />
       <EducationSection />
       <GitHubActivity />
       <SkillsSection />

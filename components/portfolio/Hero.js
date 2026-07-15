@@ -53,8 +53,8 @@ export default function Hero({ onNavigate }) {
             </div>
 
             <div className="flex flex-wrap items-center gap-3">
-              <button onClick={() => onNavigate("projects")} className="btn-primary">
-                View work
+              <button onClick={() => onNavigate("experience")} className="btn-primary">
+                View experience
               </button>
               <button onClick={() => onNavigate("contact")} className="btn-secondary">
                 Get in touch

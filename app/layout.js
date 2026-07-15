@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import ThemeProvider from "../components/ThemeProvider";
 import CursorGridGlow from "../components/CursorGridGlow";
+import PortfolioChat from "../components/portfolio/PortfolioChat";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -40,6 +41,11 @@ export const metadata = {
     index: true,
     follow: true,
   },
+  icons: {
+    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
+    shortcut: "/favicon.svg",
+    apple: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -53,6 +59,7 @@ export default function RootLayout({ children }) {
           <CursorGridGlow />
           <div className="relative z-10">
             <ThemeProvider>{children}</ThemeProvider>
+            <PortfolioChat />
           </div>
         </div>
       </body>

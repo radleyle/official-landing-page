@@ -166,7 +166,11 @@ export default function ProjectDetail({ project }) {
                   </div>
                   <div className="flex justify-between">
                     <span className="text-muted">Technologies</span>
-                    <span>{project.technologies.length}</span>
+                    <span>
+                      {project.techStack
+                        ? project.techStack.length
+                        : project.technologies.length}
+                    </span>
                   </div>
                 </div>
               </div>
@@ -210,25 +214,15 @@ export default function ProjectDetail({ project }) {
 
             {activeTab === "technologies" && (
               <div className="space-y-4">
-                {project.techStack ? (
-                  project.techStack.map((item) => (
-                    <div key={item.layer} className="card p-5">
-                      <div className="flex flex-wrap items-center gap-2 mb-2">
-                        <span className="tag">{item.layer}</span>
-                        <span className="text-sm font-medium">{item.technology}</span>
-                      </div>
-                      <p className="text-muted text-sm leading-relaxed">{item.role}</p>
+                {(project.techStack ?? []).map((item) => (
+                  <div key={item.layer} className="card p-5">
+                    <div className="flex flex-wrap items-center gap-2 mb-2">
+                      <span className="tag">{item.layer}</span>
+                      <span className="text-sm font-medium">{item.technology}</span>
                     </div>
-                  ))
-                ) : (
-                  <div className="flex flex-wrap gap-2">
-                    {project.technologies.map((tech) => (
-                      <span key={tech} className="tag">
-                        {tech}
-                      </span>
-                    ))}
+                    <p className="text-muted text-sm leading-relaxed">{item.role}</p>
                   </div>
-                )}
+                ))}
               </div>
             )}
           </motion.div>
