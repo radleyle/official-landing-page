@@ -11,6 +11,22 @@ const LEVELS = [
   "bg-accent",
 ];
 
+function formatContributionDate(dateString) {
+  const [year, month, day] = dateString.split("-").map(Number);
+  return new Date(year, month - 1, day).toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  });
+}
+
+function getDateRange(contributions) {
+  if (!contributions?.length) return null;
+  const first = contributions[0].date;
+  const last = contributions[contributions.length - 1].date;
+  return `${formatContributionDate(first)} – ${formatContributionDate(last)}`;
+}
+
 function buildWeeks(contributions) {
   if (!contributions?.length) return [];
 
@@ -53,6 +69,7 @@ export default function GitHubActivity() {
   }, []);
 
   const weeks = buildWeeks(contributions);
+  const dateRange = getDateRange(contributions);
 
   return (
     <section id="activity" className="py-24 border-t border-border">
@@ -92,10 +109,15 @@ export default function GitHubActivity() {
             </div>
           ) : (
             <div className="space-y-4">
-              <p className="text-sm text-muted">
-                <span className="font-mono text-foreground">{total}</span> contributions
-                in the last year
-              </p>
+              <div className="space-y-1">
+                <p className="text-sm text-muted">
+                  <span className="font-mono text-foreground">{total}</span> contributions
+                  in the last year
+                </p>
+                {dateRange && (
+                  <p className="text-xs font-mono text-muted">{dateRange}</p>
+                )}
+              </div>
 
               <div className="overflow-x-auto pb-2">
                 <div className="flex gap-[3px] min-w-max">
