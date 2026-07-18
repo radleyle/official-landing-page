@@ -28,12 +28,23 @@ export default function FeaturedProject() {
           >
             <div className="grid lg:grid-cols-2">
               <div className="relative aspect-[4/3] lg:aspect-auto lg:min-h-[320px] border-b lg:border-b-0 lg:border-r border-border">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
-                />
+                {project.image ? (
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                  />
+                ) : (
+                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-white/[0.03]">
+                    <span className="text-3xl font-semibold text-accent/50">
+                      {project.title}
+                    </span>
+                    <span className="text-xs font-mono text-muted">
+                      Preview coming soon
+                    </span>
+                  </div>
+                )}
               </div>
               <div className="p-8 md:p-10 flex flex-col justify-center gap-5">
                 <div className="flex flex-wrap items-center gap-3">
