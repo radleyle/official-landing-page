@@ -88,7 +88,7 @@ export default function Hero({ onNavigate }) {
           <div className="flex justify-center lg:justify-end">
             <div className="relative w-72 h-72 md:w-80 md:h-80 rounded-2xl overflow-hidden border border-border">
               <Image
-                src="/images/main.png"
+                src="/images/linkedinpfp.png"
                 alt="Nguyen Le"
                 fill
                 className="object-cover"
